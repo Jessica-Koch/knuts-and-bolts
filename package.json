@@ -1,0 +1,34 @@
+{
+  "name": "sep",
+  "version": "1.0.0",
+  "description": "data structures and algorithms implemented in JavaScript",
+  "main": "y",
+  "scripts": {
+    "test": "jest --coverage --colors" 
+  },
+  "presets": [
+    "env"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Jessica-Koch/sep.git"
+  },
+  "author": "Jessica Koch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jessica-Koch/sep/issues"
+  },
+  "homepage": "https://github.com/Jessica-Koch/sep#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "jest": "^23.2.0"
+  },
+  "dependencies": {
+    "ajv-keywords": "^3.2.0",
+    "eslint-plugin-jest": "^21.17.0"
+  }
+}
