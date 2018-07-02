@@ -59,15 +59,22 @@ LinkedList.prototype.deleteTail = function() {
 LinkedList.prototype.reverse = function() {
   if(this.head === null || this.length === 0) return 'List empty';
 
-  let prev = null;
   let next = null;
   let current = this.head;
+  this.tail = this.head;
 
-  for(const i in this) {
-    // this.head = current.next;
-    console.log('current:', current)
-    console.log('this.head:', this.head)
+  while(current !== null) {
+    next = current.next;
+    current.next = current.prev;
+    current.prev = next
+
+    if(!next) {
+      this.head = current;
+    }
+
+    current = next;
   }
+  return this;
 }
 
 
