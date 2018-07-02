@@ -1,24 +1,24 @@
 {
-  "name": "sep",
+  "name": "knuts-and-bolts",
   "version": "1.0.0",
   "description": "data structures and algorithms implemented in JavaScript",
   "main": "y",
   "scripts": {
-    "test": "jest --coverage --colors" 
+    "test": "jest --coverage --colors"
   },
   "presets": [
     "env"
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Jessica-Koch/sep.git"
+    "url": "git+ssh://git@github.com/Jessica-Koch/knuts-and-bolts.git"
   },
   "author": "Jessica Koch",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jessica-Koch/sep/issues"
+    "url": "https://github.com/Jessica-Koch/knuts-and-bolts/issues"
   },
-  "homepage": "https://github.com/Jessica-Koch/sep#readme",
+  "homepage": "https://github.com/Jessica-Koch/knuts-and-bolts#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
