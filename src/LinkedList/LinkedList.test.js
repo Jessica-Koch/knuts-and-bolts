@@ -53,7 +53,7 @@ describe('LinkedLists', () => {
     })
 
     test('it should be able to remove the last item in a list', () => {
-      list.addToTail(100)
+      list.addToHead(100)
       list.deleteHead()
 
       expect(list.length).toBe(0)
@@ -63,7 +63,15 @@ describe('LinkedLists', () => {
     })
 
     test('it should be able to delete one item from the head', () => {
+      list.addToTail(100)
+      list.addToTail(200)
+      list.addToTail(300)
+      expect(list.length).toBe(3)
 
+      list.deleteHead()
+      expect(list.length).toBe(2)
+      expect(list.tail.value).toBe(300)
+      expect(list.head.value).toBe(200)
     })
   })
   describe('deleteTail', () => {
@@ -125,18 +133,21 @@ describe('LinkedLists', () => {
     })
 
     test('it should return if there are no or only 1 item in the list', () => {
-      // list.addToTail(100)
-      // const reversed = list.reverse()
-      // expect(reversed.head.value).toBe(100)
-      // expect(reversed.tail.value).toBe(100)
+      list.addToTail(100)
+      const reversed = list.reverse()
+      expect(reversed.head.value).toBe(100)
+      expect(reversed.tail.value).toBe(100)
     })
 
     test('it should be able to be able to reverse the order of a list', () => {
       list.addToTail(100)
       list.addToTail(200)
-      console.log('list: ', list)
-      expect(reversed.head.value).toBe(100)
-      expect(reversed.tail.value).toBe(200)
+      list.addToTail(300)
+
+      const reversed = list.reverse()
+
+      expect(reversed.head.value).toBe(300)
+      expect(reversed.tail.value).toBe(100)
     })
   })
 })
