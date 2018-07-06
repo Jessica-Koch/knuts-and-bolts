@@ -44,4 +44,8 @@ Stack.prototype.isEmpty = function() {
     return false;
 }
 
+Stack.prototype.size = function() {
+    return this.length;
+}
+
 module.exports = Stack;
