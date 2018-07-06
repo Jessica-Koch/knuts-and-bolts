@@ -28,7 +28,7 @@ LinkedList.prototype.search = function(searchItem) {
 
   while (currentNode) {
     if(currentNode.value === searchItem) {
-      return currentNode.value;
+      return currentNode;
     }
     currentNode = currentNode.next;
   }
@@ -56,8 +56,15 @@ LinkedList.prototype.deleteTail = function() {
   this.length--;
 }
 
-LinkedList.prototype.deleteIndex = function(val) {
+LinkedList.prototype.deleteValue = function(val) {
+  if(!this.tail && !this.head ) return;
+  const itemToDelete = this.search(val);
 
+  if(itemToDelete) {
+    itemToDelete.prev.next = itemToDelete.next;
+    itemToDelete.next.prev = itemToDelete.prev;
+    this.length--;
+  }
 }
 
 LinkedList.prototype.reverse = function() {
