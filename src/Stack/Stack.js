@@ -1,29 +1,29 @@
 const Node = require('../Node/Node');
 
 function Stack() {
-    this.head = null;
+    this.tail = null;
     this.length = 0;
 }
 
 Stack.prototype.push = function(val) {
     const newNode = new Node(val);
-    const oldHead = this.head;
+    const oldtail = this.tail;
 
-    if (oldHead) {
-        this.head = newNode;
-        this.head.next = oldHead;
+    if (oldtail) {
+        this.tail = newNode;
+        this.tail.prev = oldtail;
     } else {
-        this.head = newNode;
+        this.tail = newNode;
     }
     this.length++;
 }
 
 Stack.prototype.pop = function() {
     if (this.length === 1) {
-        this.head = null;
+        this.tail = null;
         this.length--;
     } else if(this.length > 1) {
-        this.head = this.head.next;
+        this.tail = this.tail.prev;
         this.length--;
     }
 
@@ -31,8 +31,8 @@ Stack.prototype.pop = function() {
 }
 
 Stack.prototype.peek = function() {
-    if(this.head) {
-        return this.head;
+    if(this.tail) {
+        return this.tail;
     }
     return undefined;
 }

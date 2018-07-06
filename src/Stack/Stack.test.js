@@ -8,7 +8,7 @@ describe('Stacks', () => {
     describe('initialization', () => {
         test('starts out empty', () => {
             expect(stack.length).toBe(0);
-            expect(stack.head).toBeNull();
+            expect(stack.tail).toBeNull();
         })
     })
 
@@ -21,7 +21,7 @@ describe('Stacks', () => {
             stack.push(100)
             stack.pop();
             expect(stack.length).toBe(0);
-            expect(stack.head).toBeNull()
+            expect(stack.tail).toBeNull()
         })
 
         test('can remove the sole item from the stack', () => {
@@ -29,7 +29,7 @@ describe('Stacks', () => {
             stack.push(200)
             stack.pop();
             expect(stack.length).toBe(1);
-            expect(stack.head.value).toBe(100)
+            expect(stack.tail.value).toBe(100)
         })
     })
 
@@ -37,7 +37,7 @@ describe('Stacks', () => {
         test('it can add an item to an empty stack', () => {
             stack.push(200);
             expect(stack.length).toBe(1)
-            expect(stack.head.value).toBe(200)
+            expect(stack.tail.value).toBe(200)
         })
 
         test('it can add an item to an empty stack', () => {
@@ -45,7 +45,7 @@ describe('Stacks', () => {
             stack.push(200)
             stack.push(300)
             expect(stack.length).toBe(3)
-            expect(stack.head.value).toBe(300)
+            expect(stack.tail.value).toBe(300)
         })
     })
 
