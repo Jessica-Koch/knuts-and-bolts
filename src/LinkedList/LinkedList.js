@@ -56,6 +56,10 @@ LinkedList.prototype.deleteTail = function() {
   this.length--;
 }
 
+LinkedList.prototype.deleteIndex = function(val) {
+
+}
+
 LinkedList.prototype.reverse = function() {
   if(this.head === null || this.length === 0) return 'List empty';
 
