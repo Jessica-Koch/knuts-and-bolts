@@ -74,6 +74,7 @@ describe('LinkedLists', () => {
       expect(list.head.value).toBe(200)
     })
   })
+
   describe('deleteTail', () => {
     test('it should handle null gracefully', () => {
       list.deleteTail()
@@ -103,6 +104,34 @@ describe('LinkedLists', () => {
     })
   })
 
+  describe('deleteValue', () => {
+    test('it should handle null gracefully', () => {
+      list.deleteValue()
+
+      expect(list.length).toBe(0)
+    })
+
+    test('it should return if item to delete does not exist', () => {
+      list.addToTail(100)
+
+      expect(list.length).toBe(1)
+      expect(list.deleteValue(200)).toBeUndefined();
+    })
+
+    test('it should be able to delete one item from the list', () => {
+      list.addToTail(100)
+      list.addToTail(200)
+      list.addToTail(300)
+      expect(list.length).toBe(3)
+
+      list.deleteValue(200)
+      expect(list.length).toBe(2)
+      expect(list.search()).toBe(false)
+      expect(list.tail.prev.value).toBe(100)
+      expect(list.head.next.value).toBe(300)
+    })
+  })
+
   describe('Search', () => {
     test('it should handle null gracefully', () => {
       expect(list.length).toBe(0)
@@ -114,7 +143,7 @@ describe('LinkedLists', () => {
       list.addToTail(200)
       list.addToTail(300)
 
-      expect(list.search(100)).toBe(100)
+      expect(list.search(100).value).toBe(100)
     })
 
     test('it should return if a node is not found', () => {
