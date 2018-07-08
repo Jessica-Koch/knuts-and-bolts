@@ -96,9 +96,22 @@ describe("BinarySearchTrees", () => {
       expect(result).toBeUndefined();
     });
 
-    test("it should be able to find a node if present", () => {});
+    test("it should be able to find a node if present and less than root", () => {
+      const result = tree.search(4);
+      expect(result).toBe(4);
+    });
 
-    test("it should return undefined if node is not found", () => {});
+    test("it should be able to find a node if present and less than root", () => {
+      const result = tree.search(21);
+      expect(result).toBe(21);
+    });
+
+    test("it should be able to find a node is equal to root", () => {
+      const result = tree.search(11);
+      expect(result).toBe(11);
+    });
+
+    test("it should return null if node is not found", () => {});
   });
 
   describe("delete", () => {

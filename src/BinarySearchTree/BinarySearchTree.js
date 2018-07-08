@@ -54,6 +54,22 @@ BinarySearchTree.prototype.insert = function(val) {
 
 BinarySearchTree.prototype.search = function(val) {
   if (!val || !this.root) return; // why is this line not covered but if broken out it is?
+
+  let root = this.root;
+
+  while (root) {
+    if (val === root.value) {
+      return val;
+    }
+
+    if (val < root.value) {
+      root = root.left;
+    }
+
+    if (val > root.value) {
+      root = root.right;
+    }
+  }
 };
 
 BinarySearchTree.prototype.delete = function(val) {
