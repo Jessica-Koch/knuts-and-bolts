@@ -51,21 +51,24 @@ describe('BinarySearchTrees', () => {
     test('it should be able to insert values smaller than the root', () => {
       const tree = new BST(11);
       tree.recursiveInsert(tree.root, 6);
+      tree.recursiveInsert(tree.root, 2);
       expect(tree.root.value).toBe(11);
       expect(tree.root.left.value).toBe(6);
+      expect(tree.root.left.left.value).toBe(2);
     });
     
     test('it should be able to insert values larger than the root', () => {
       const tree = new BST(11);
       tree.recursiveInsert(tree.root, 6);
       tree.recursiveInsert(tree.root, 19);
+      tree.recursiveInsert(tree.root, 90);
       expect(tree.root.value).toBe(11);
       expect(tree.root.right.value).toBe(19);
+      expect(tree.root.right.right.value).toBe(90);
     });
     
-    test('it should be able to insert values larger than the root', () => {
+    test('it should be able to insert values equal than the root', () => {
       const tree = new BST(11);
-      tree.recursiveInsert(tree.root, 6);
       tree.recursiveInsert(tree.root, 11);
       expect(tree.root.value).toBe(11);
       expect(tree.root.right.value).toBe(11);
@@ -78,8 +81,8 @@ describe('BinarySearchTrees', () => {
     tree.insert(6);
     tree.insert(19);
     tree.insert(21);
-    tree.insert(19);
-    tree.insert(19);
+    tree.insert(4);
+    tree.insert(10);
     test('it should be able to find a node if present', () => {
       
     })

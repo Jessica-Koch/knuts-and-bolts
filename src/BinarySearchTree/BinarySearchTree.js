@@ -12,7 +12,8 @@ function BinarySearchTree(val) {
 BinarySearchTree.prototype.recursiveInsert = function(root, val) {
   if (val < root.value) {
     !root.left ? root.left = new Node(val) : this.recursiveInsert(root.left, val);
-  } else if( val >= root.value) {
+  }
+  if( val >= root.value) {
     !root.right ? root.right = new Node(val) : this.recursiveInsert(root.right, val)
   }
 }
@@ -36,7 +37,7 @@ BinarySearchTree.prototype.insert = function(val) {
       }
     } 
     
-    else if(val >= root.value) {
+    if(val >= root.value) {
       if(!root.right) {
         root.right = new Node(val);
         break;
