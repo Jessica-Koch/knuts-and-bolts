@@ -1,2 +1,4 @@
 /node_modules
-/coveragefalse/
+/coverage
+/false
+*.log
