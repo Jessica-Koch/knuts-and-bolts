@@ -75,6 +75,48 @@ describe("BinarySearchTrees", () => {
     });
   });
 
+  describe("recursiveSearch", () => {
+    const tree = new BST();
+    tree.insert(11);
+    tree.insert(6);
+    tree.insert(19);
+    tree.insert(21);
+    tree.insert(4);
+    tree.insert(10);
+
+    test("it handles empty root nodes", () => {
+      const emptyTree = new BST();
+      const result = emptyTree.recursiveSearch(tree.root, undefined);
+      expect(result).toBeUndefined();
+      expect(emptyTree.root).toBeUndefined();
+    });
+
+    test("it should handle an empty search", () => {
+      const result = tree.recursiveSearch(tree.root);
+      expect(result).toBeUndefined();
+    });
+
+    test("it should be able to find a node if present and less than root", () => {
+      const result = tree.recursiveSearch(tree.root, 4);
+      expect(result).toBe(4);
+    });
+
+    test("it should be able to find a node if present and greater than root", () => {
+      const result = tree.recursiveSearch(tree.root, 21);
+      expect(result).toBe(21);
+    });
+
+    test("it should be able to find a node is equal to root", () => {
+      const result = tree.recursiveSearch(11);
+      expect(result).toBe(11);
+    });
+
+    test("it should return null if node is not found", () => {
+      const result = tree.recursiveSearch(13);
+      expect(result).toBeUndefined();
+    });
+  });
+
   describe("search", () => {
     const tree = new BST();
     tree.insert(11);
@@ -101,7 +143,7 @@ describe("BinarySearchTrees", () => {
       expect(result).toBe(4);
     });
 
-    test("it should be able to find a node if present and less than root", () => {
+    test("it should be able to find a node if present and greater than root", () => {
       const result = tree.search(21);
       expect(result).toBe(21);
     });
@@ -111,7 +153,10 @@ describe("BinarySearchTrees", () => {
       expect(result).toBe(11);
     });
 
-    test("it should return null if node is not found", () => {});
+    test("it should return null if node is not found", () => {
+      const result = tree.search(13);
+      expect(result).toBeUndefined();
+    });
   });
 
   describe("delete", () => {

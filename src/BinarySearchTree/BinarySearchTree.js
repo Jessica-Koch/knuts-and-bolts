@@ -52,22 +52,32 @@ BinarySearchTree.prototype.insert = function(val) {
   }
 };
 
-BinarySearchTree.prototype.search = function(val) {
-  if (!val || !this.root) return; // why is this line not covered but if broken out it is?
+BinarySearchTree.prototype.recursiveSearch = function(root, val) {
+  if (val === root.value) {
+    return val;
+  }
+  if (val < root.value) {
+    !root.left ? undefined : this.recursiveSearch(root.left, val);
+  } else if (val > root.value) {
+    !root.right ? undefined : this.recursiveSearch(root.right, val);
+  } else if (!val) {
+    return;
+  }
+};
 
+BinarySearchTree.prototype.search = function(val) {
+  if (!val || !this.root) return;
   let root = this.root;
 
   while (root) {
     if (val === root.value) {
       return val;
-    }
-
-    if (val < root.value) {
+    } else if (val < root.value) {
       root = root.left;
-    }
-
-    if (val > root.value) {
+    } else if (val > root.value) {
       root = root.right;
+    } else {
+      return;
     }
   }
 };
