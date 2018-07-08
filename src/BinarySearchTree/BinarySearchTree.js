@@ -53,15 +53,13 @@ BinarySearchTree.prototype.insert = function(val) {
 };
 
 BinarySearchTree.prototype.recursiveSearch = function(root, val) {
-  if (val === root.value) {
+  if (!root) return;
+  else if (val === root.value) {
     return val;
-  }
-  if (val < root.value) {
-    !root.left ? undefined : this.recursiveSearch(root.left, val);
+  } else if (val < root.value) {
+    return this.recursiveSearch(root.left, val);
   } else if (val > root.value) {
-    !root.right ? undefined : this.recursiveSearch(root.right, val);
-  } else if (!val) {
-    return;
+    return this.recursiveSearch(root.right, val);
   }
 };
 

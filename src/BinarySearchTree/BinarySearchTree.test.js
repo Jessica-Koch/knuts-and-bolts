@@ -76,20 +76,12 @@ describe("BinarySearchTrees", () => {
   });
 
   describe("recursiveSearch", () => {
-    const tree = new BST();
-    tree.insert(11);
+    const tree = new BST(11);
     tree.insert(6);
     tree.insert(19);
     tree.insert(21);
     tree.insert(4);
     tree.insert(10);
-
-    test("it handles empty root nodes", () => {
-      const emptyTree = new BST();
-      const result = emptyTree.recursiveSearch(tree.root, undefined);
-      expect(result).toBeUndefined();
-      expect(emptyTree.root).toBeUndefined();
-    });
 
     test("it should handle an empty search", () => {
       const result = tree.recursiveSearch(tree.root);
@@ -98,6 +90,9 @@ describe("BinarySearchTrees", () => {
 
     test("it should be able to find a node if present and less than root", () => {
       const result = tree.recursiveSearch(tree.root, 4);
+
+      console.log(result.value);
+      // tree.inOrder(tree.root);
       expect(result).toBe(4);
     });
 
@@ -107,12 +102,12 @@ describe("BinarySearchTrees", () => {
     });
 
     test("it should be able to find a node is equal to root", () => {
-      const result = tree.recursiveSearch(11);
+      const result = tree.recursiveSearch(tree.root, 11);
       expect(result).toBe(11);
     });
 
-    test("it should return null if node is not found", () => {
-      const result = tree.recursiveSearch(13);
+    test("it should return undefined if node is not found", () => {
+      const result = tree.recursiveSearch(tree.root, 13);
       expect(result).toBeUndefined();
     });
   });
