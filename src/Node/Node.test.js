@@ -1,11 +1,11 @@
-const Node = require('./Node');
+const Node = require("./Node");
 
-describe('Node', () => {
-  test('Instantiates with value', () => {
-    const n = new Node('bloop');
+describe("Node", () => {
+  test("Instantiates with value", () => {
+    const n = new Node("bloop");
 
-    expect(n.value).toBe('bloop')
-    expect(n.next).toBeUndefined()
-    expect(n.prev).toBeUndefined()
-  })
-})
+    expect(n.value).toBe("bloop");
+    expect(n.next).toBeUndefined();
+    expect(n.prev).toBeUndefined();
+  });
+});
