@@ -1,7 +1,13 @@
-const Stack = require("./Stack");
+import Stack from "./Stack";
 
 describe("Stacks", () => {
+  let stack;
+
   beforeEach(() => {
+    stack = new Stack();
+  });
+
+  afterEach(() => {
     stack = new Stack();
   });
 

@@ -1,4 +1,4 @@
-const Node = require("./Node");
+import Node from "./Node";
 
 function BinarySearchTree(val) {
   if (val) {
@@ -86,4 +86,4 @@ BinarySearchTree.prototype.delete = function(val) {
   // };
 };
 
-module.exports = BinarySearchTree;
+export default BinarySearchTree;

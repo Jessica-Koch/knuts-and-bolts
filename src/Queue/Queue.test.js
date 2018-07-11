@@ -1,7 +1,12 @@
-const Queue = require("./Queue");
+import Queue from "./Queue";
 
 describe("Queues", () => {
+  let queue;
   beforeEach(() => {
+    queue = new Queue();
+  });
+
+  afterEach(() => {
     queue = new Queue();
   });
 

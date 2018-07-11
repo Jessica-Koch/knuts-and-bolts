@@ -1,4 +1,4 @@
-const Node = require("../Node/Node");
+import Node from "../Node/Node";
 
 function Queue() {
   this.tail = null;
@@ -39,4 +39,4 @@ Queue.prototype.isEmpty = function() {
   return false;
 };
 
-module.exports = Queue;
+export default Queue;

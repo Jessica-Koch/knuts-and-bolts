@@ -1,4 +1,4 @@
-const Node = require("../Node/Node");
+import Node from "../Node/Node";
 
 function LinkedList() {
   this.tail = null;
@@ -90,4 +90,4 @@ LinkedList.prototype.reverse = function() {
   return this;
 };
 
-module.exports = LinkedList;
+export default LinkedList;
