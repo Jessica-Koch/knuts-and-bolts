@@ -1,16 +1,4 @@
 import Node from "../BinarySearchTree/Node";
-<<<<<<< HEAD
-
-class BinaryTree {
-  constructor(root) {
-    this.root = new Node(root);
-  }
-
-  isMirrored(leftNode, rightNode) {
-    return leftNode;
-  }
-}
-=======
 import Queue from "../Queue/Queue";
 
 function BinaryTree(val) {
@@ -41,24 +29,23 @@ BinaryTree.prototype.isMirroredUtility = function(node1, node2) {
   );
 };
 
-BinaryTree.prototype.printBreadth = function() {
-  const q = new Queue();
-  let root = this.root;
+// BinaryTree.prototype.printBreadth = function() {
+//   const q = new Queue();
+//   let root = this.root;
 
-  if (!root) return;
+//   if (!root) return;
 
-  q.enqueue(root.value);
-  while (q.length > 0) {
-    if (root.left) {
-      q.enqueue(root.left.value);
-    } else if (root.right) {
-      q.enqueue(root.right.value);
-    }
-    root = root.left;
-  }
+//   q.enqueue(root.value);
+//   while (q.length > 0) {
+//     if (root.left) {
+//       q.enqueue(root.left.value);
+//     } else if (root.right) {
+//       q.enqueue(root.right.value);
+//     }
+//     root = root.left;
+//   }
 
-  return q;
-};
->>>>>>> 4631a75acf10dab3c2543681d44dd9a02f5f3005
+//   return q;
+// };
 
 export default BinaryTree;

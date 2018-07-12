@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import BST from "./BinarySearchTree";
-=======
 import BinarySearchTree from "./BinarySearchTree";
->>>>>>> 4631a75acf10dab3c2543681d44dd9a02f5f3005
 
 describe("BinarySearchTrees", () => {
   describe("initialization", () => {

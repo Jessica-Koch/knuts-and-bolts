@@ -7,24 +7,9 @@
     "build": "babel src -d lib",
     "test": "jest --coverage --colors"
   },
-<<<<<<< HEAD
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "env": {
-      "test": {
-        "presets": [
-          "@babel/preset-env"
-        ]
-      }
-    }
-  },
-=======
   "presets": [
     "@babel/env"
   ],
->>>>>>> 4631a75acf10dab3c2543681d44dd9a02f5f3005
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Jessica-Koch/knuts-and-bolts.git"
@@ -36,15 +21,9 @@
   },
   "homepage": "https://github.com/Jessica-Koch/knuts-and-bolts#readme",
   "devDependencies": {
-<<<<<<< HEAD
-    "@babel/cli": "^7.0.0-beta.52",
-    "@babel/core": "^7.0.0-beta.52",
-    "@babel/preset-env": "^7.0.0-beta.52",
-=======
     "@babel/cli": "^7.0.0-beta.53",
     "@babel/core": "^7.0.0-beta.53",
     "@babel/preset-env": "^7.0.0-beta.53",
->>>>>>> 4631a75acf10dab3c2543681d44dd9a02f5f3005
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.0",
     "eslint": "^4.19.1",
@@ -52,10 +31,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jest": "^21.17.0",
     "jest": "^23.2.0",
-<<<<<<< HEAD
     "jest-cli": "^23.4.0",
-=======
->>>>>>> 4631a75acf10dab3c2543681d44dd9a02f5f3005
     "regenerator-runtime": "^0.12.0"
   },
   "dependencies": {}

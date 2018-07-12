@@ -74,8 +74,6 @@ BinarySearchTree.prototype.search = function(val) {
       root = root.left;
     } else if (val > root.value) {
       root = root.right;
-    } else {
-      return;
     }
   }
 };
