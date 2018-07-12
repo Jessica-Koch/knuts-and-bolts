@@ -4,4 +4,4 @@ function Node(value, left, right) {
   this.right = right;
 }
 
-module.exports = Node;
+export default Node;

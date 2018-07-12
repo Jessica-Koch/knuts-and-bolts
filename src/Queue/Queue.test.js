@@ -1,10 +1,14 @@
-const Queue = require("./Queue");
+import Queue from "./Queue";
 
 describe("Queues", () => {
+  let queue;
   beforeEach(() => {
     queue = new Queue();
   });
 
+  afterEach(() => {
+    queue = new Queue();
+  });
   describe("initialization", () => {
     test("starts out empty", () => {
       expect(queue.length).toBe(0);

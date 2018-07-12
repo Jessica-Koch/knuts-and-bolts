@@ -1,9 +1,14 @@
-const LinkedList = require("./LinkedList");
+import LinkedList from "./LinkedList";
 
 describe("LinkedLists", () => {
+  let list;
   beforeEach(() => {
     list = new LinkedList();
   });
+  afterEach(() => {
+    list = new LinkedList();
+  });
+
   test("starts out empty", () => {
     expect(list.length).toBe(0);
     expect(list.tail).toBeNull();

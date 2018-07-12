@@ -1,4 +1,4 @@
-const BST = require("./BinarySearchTree");
+import BST from "./BinarySearchTree";
 
 describe("BinarySearchTrees", () => {
   describe("initialization", () => {
@@ -91,7 +91,6 @@ describe("BinarySearchTrees", () => {
     test("it should be able to find a node if present and less than root", () => {
       const result = tree.recursiveSearch(tree.root, 4);
 
-      console.log(result.value);
       // tree.inOrder(tree.root);
       expect(result).toBe(4);
     });

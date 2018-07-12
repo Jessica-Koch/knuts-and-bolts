@@ -1,4 +1,4 @@
-const Node = require("../Node/Node");
+import Node from "../Node/Node";
 
 function Stack() {
   this.tail = null;
@@ -48,4 +48,4 @@ Stack.prototype.size = function() {
   return this.length;
 };
 
-module.exports = Stack;
+export default Stack;

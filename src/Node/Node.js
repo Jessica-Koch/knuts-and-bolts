@@ -4,4 +4,4 @@ function Node(value, next, prev) {
   this.prev = prev;
 }
 
-module.exports = Node;
+export default Node;

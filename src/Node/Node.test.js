@@ -1,4 +1,4 @@
-const Node = require("./Node");
+import Node from "./Node";
 
 describe("Node", () => {
   test("Instantiates with value", () => {
