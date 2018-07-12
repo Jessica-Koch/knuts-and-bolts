@@ -2,9 +2,11 @@ import LinkedList from "./LinkedList";
 
 describe("LinkedLists", () => {
   let list;
+
   beforeEach(() => {
     list = new LinkedList();
   });
+
   afterEach(() => {
     list = new LinkedList();
   });

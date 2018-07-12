@@ -1,28 +1,32 @@
+<<<<<<< HEAD
 import BST from "./BinarySearchTree";
+=======
+import BinarySearchTree from "./BinarySearchTree";
+>>>>>>> 4631a75acf10dab3c2543681d44dd9a02f5f3005
 
 describe("BinarySearchTrees", () => {
   describe("initialization", () => {
     test("it initializes without a root", () => {
-      const tree = new BST();
+      const tree = new BinarySearchTree();
       expect(tree.root).toBeUndefined();
     });
   });
 
   describe("insert", () => {
     test("it should handle null gracefull", () => {
-      const tree = new BST();
+      const tree = new BinarySearchTree();
       tree.insert();
       expect(tree.root).toBeUndefined();
     });
 
     test("the first item inserted should be the root of the tree", () => {
-      const tree = new BST();
+      const tree = new BinarySearchTree();
       tree.insert(11);
       expect(tree.root.value).toBe(11);
     });
 
     test("it should be able to insert values smaller than the root", () => {
-      const tree = new BST();
+      const tree = new BinarySearchTree();
       tree.insert(11);
       tree.insert(6);
       tree.insert(9);
@@ -31,7 +35,7 @@ describe("BinarySearchTrees", () => {
     });
 
     test("it should be able to insert values larger than the root", () => {
-      const tree = new BST();
+      const tree = new BinarySearchTree();
       tree.insert(11);
       tree.insert(6);
       tree.insert(19);
@@ -43,13 +47,13 @@ describe("BinarySearchTrees", () => {
 
   describe("recursiveInsert", () => {
     test("the first item inserted should be the root of the tree", () => {
-      const tree = new BST(1);
+      const tree = new BinarySearchTree(1);
 
       expect(tree.root.value).toBe(1);
     });
 
     test("it should be able to insert values smaller than the root", () => {
-      const tree = new BST(11);
+      const tree = new BinarySearchTree(11);
       tree.recursiveInsert(tree.root, 6);
       tree.recursiveInsert(tree.root, 2);
       expect(tree.root.value).toBe(11);
@@ -58,7 +62,7 @@ describe("BinarySearchTrees", () => {
     });
 
     test("it should be able to insert values larger than the root", () => {
-      const tree = new BST(11);
+      const tree = new BinarySearchTree(11);
       tree.recursiveInsert(tree.root, 6);
       tree.recursiveInsert(tree.root, 19);
       tree.recursiveInsert(tree.root, 90);
@@ -68,7 +72,7 @@ describe("BinarySearchTrees", () => {
     });
 
     test("it should be able to insert values equal than the root", () => {
-      const tree = new BST(11);
+      const tree = new BinarySearchTree(11);
       tree.recursiveInsert(tree.root, 11);
       expect(tree.root.value).toBe(11);
       expect(tree.root.right.value).toBe(11);
@@ -76,7 +80,7 @@ describe("BinarySearchTrees", () => {
   });
 
   describe("recursiveSearch", () => {
-    const tree = new BST(11);
+    const tree = new BinarySearchTree(11);
     tree.insert(6);
     tree.insert(19);
     tree.insert(21);
@@ -112,7 +116,7 @@ describe("BinarySearchTrees", () => {
   });
 
   describe("search", () => {
-    const tree = new BST();
+    const tree = new BinarySearchTree();
     tree.insert(11);
     tree.insert(6);
     tree.insert(19);
@@ -121,7 +125,7 @@ describe("BinarySearchTrees", () => {
     tree.insert(10);
 
     test("it handles empty root nodes", () => {
-      const emptyTree = new BST();
+      const emptyTree = new BinarySearchTree();
       const result = emptyTree.search(undefined);
       expect(result).toBeUndefined();
       expect(emptyTree.root).toBeUndefined();
@@ -155,7 +159,7 @@ describe("BinarySearchTrees", () => {
 
   describe("delete", () => {
     test("it should handle null gracefully", () => {
-      const tree = new BST();
+      const tree = new BinarySearchTree();
       expect(tree.delete(1)).toBeUndefined();
     });
 
