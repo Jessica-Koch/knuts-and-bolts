@@ -1,20 +1,43 @@
-import {stripLetters} from "./String";
+import {isPalindrome, stripLetters} from "./String";
 
 describe("String Functions", () => {
-  describe("stripLetters", () => {
-    const vowelArr = ["a", "e", "i", "o", "u"];
-
-    test("handles null", () => {
-      expect(stripLetters("", vowelArr)).toBeUndefined();
+  describe("isPalindrome", () => {
+    test("it should return true if the string is empty", () => {
+      expect(isPalindrome("")).toBe(true);
     });
 
-    test("it handles non string values bing passed", () => {
-      expect(stripLetters(1, vowelArr)).toBeUndefined();
+    test("it should return true if the string has one letter", () => {
+      expect(isPalindrome("a")).toBe(true);
     });
 
-    test("it strips out letters from a string", () => {
-      const str = "abcdefghi";
-      expect(stripLetters(str, vowelArr)).toBe("bcdfgh");
+    test("it should return false if not a palendrome", () => {
+      expect(isPalindrome("be")).toBe(false);
+    });
+
+    test("it should return false if not a palendrome", () => {
+      expect(isPalindrome("aa")).toBe(true);
+    });
+
+    test("it should return false if not a palendrome", () => {
+      expect(isPalindrome("racecar")).toBe(true);
     });
   });
+
+  describe('stripLetters', () => {
+    test('it should return if nothing is passed', () => {
+      expect(stripLetters()).toBeUndefined();
+    })
+
+    test('it should return original string if it does not include any letters from letter arr', () => {
+      expect(stripLetters('cat', ['b'])).toBe('cat');
+    })
+
+    test('it should return original string if letter arr is empty', () => {
+      expect(stripLetters('cat', [])).toBe('cat');
+    })
+
+    test('it should remove letter array characters from the string', () => {
+      expect(stripLetters('abcdefghij', ['a', 'e', 'i', 'o', 'u'])).toBe('bcdfghj')
+    })
+  })
 });
