@@ -1,0 +1,20 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint:latest",
+        "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rulesDirectory": [],
+    "linterOptions": {
+        "exclude": ["coverage/**", "./dist/**"]
+    },
+    "rules": {
+        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-trailing-underscore", "allow-pascal-case"],
+        "interface-name": false,
+        "object-literal-sort-keys": false,
+        "no-implicit-dependencies": [true, "dev"],
+        "max-classes-per-file": false,
+    }
+}
