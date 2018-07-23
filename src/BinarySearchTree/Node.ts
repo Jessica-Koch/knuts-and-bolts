@@ -1,7 +1,12 @@
-function Node(value, left, right) {
-  this.value = value;
-  this.left = left;
-  this.right = right;
+class Node {
+  value: string | number;
+  right?: Node;
+  left?: Node;
+  constructor(value: string | number) {
+    this.value = value;
+    this.left = undefined;
+    this.right = undefined;
+  }
 }
 
 export default Node;
