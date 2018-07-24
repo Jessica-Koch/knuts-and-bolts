@@ -1,7 +1,7 @@
 import Queue from './Queue';
 
 describe('Queues', () => {
-  let queue: Queue;
+  let queue: Queue<string | number>;
   beforeEach(() => {
     queue = new Queue();
   });

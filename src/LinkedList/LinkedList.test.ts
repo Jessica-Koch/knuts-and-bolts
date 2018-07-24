@@ -132,8 +132,8 @@ describe('LinkedLists', () => {
       list.deleteValue(200);
       expect(list.length).toBe(2);
       expect(list.search()).toBe(false);
-      expect(list.tail.prev.value).toBe(100);
-      expect(list.head!.next.value).toBe(300);
+      expect(list.tail!.prev!.value).toBe(100);
+      expect(list.head!.next!.value).toBe(300);
     });
   });
 

@@ -77,11 +77,26 @@ class BinarySearchTree<T extends string | number> {
 
   postorderTraversal(node?: Node<T>) {}
 
-  printBreadth() {
-    // const q = new Queue();
+  printBreadth(rootNode?: Node<T>) {
+    if (!rootNode) return;
+
+    const q = new Queue();
+    q.enqueue(rootNode.value);
+    console.log(rootNode);
+
+    while (q.size() > 0) {
+      const currentNode = q.top();
+      if (currentNode!.left !== undefined) {
+        q.enqueue(rootNode.left!.value);
+      }
+      q.enqueue(rootNode.right!.value);
+    }
+
+    console.log(q.top());
+    console.log();
   }
 
-  search(val?: T) {
+  search(val: T) {
     if (val === undefined || this.root === undefined) return;
     let root = this.root;
 

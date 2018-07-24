@@ -3,10 +3,10 @@ class Node<T extends string | number> {
   next?: Node<T>;
   prev?: Node<T>;
 
-  constructor(value: T) {
+  constructor(value: T, next?: Node<T>, prev?: Node<T>) {
     this.value = value;
-    this.next = undefined;
-    this.prev = undefined;
+    this.next = next;
+    this.prev = prev;
   }
 }
 

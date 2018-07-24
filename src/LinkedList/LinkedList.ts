@@ -63,8 +63,8 @@ class LinkedList<T extends string | number> {
     this.length--;
   }
 
-  deleteValue(val) {
-    if (!this.tail && !this.head) return;
+  deleteValue(val: string | number) {
+    if (!val || (!this.tail && !this.head)) return;
     const itemToDelete = this.search(val);
 
     if (itemToDelete) {
