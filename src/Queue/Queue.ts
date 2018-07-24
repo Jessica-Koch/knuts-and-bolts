@@ -1,6 +1,6 @@
 import Node from "../Node/Node";
 
-function Queue() {
+function Queue<T>() {
   this.tail = null;
   this.head = null;
   this.length = 0;
