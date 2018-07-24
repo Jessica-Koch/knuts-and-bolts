@@ -1,5 +1,5 @@
-import Node from "./Node";
-import Queue from "../Queue/Queue";
+import Node from './Node';
+import Queue from '../Queue/Queue';
 
 class BinarySearchTree<T extends string | number> {
   val?: string | number;
@@ -78,8 +78,9 @@ class BinarySearchTree<T extends string | number> {
   postorderTraversal(node?: Node<T>) {}
 
   printBreadth() {
-    const q = new Queue();
+    // const q = new Queue();
   }
+
   search(val?: T) {
     if (val === undefined || this.root === undefined) return;
     let root = this.root;

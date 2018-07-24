@@ -1,12 +1,12 @@
 class Node<T extends string | number> {
   value: string | number;
-  right?: Node<T>;
-  left?: Node<T>;
+  next?: Node<T>;
+  prev?: Node<T>;
 
   constructor(value: T) {
     this.value = value;
-    this.left = undefined;
-    this.right = undefined;
+    this.next = undefined;
+    this.prev = undefined;
   }
 }
 

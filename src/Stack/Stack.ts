@@ -1,48 +1,55 @@
 import Node from '../Node/Node';
 
-class Queue<T extends string | number> {
-  length: number;
-  head?: Node<T>;
+class Stack<T extends string | number> {
   tail?: Node<T>;
+  length: number;
 
   constructor() {
     this.tail = undefined;
-    this.head = undefined;
     this.length = 0;
   }
 
-  enqueue(val: number | string) {
+  push(val: string | number) {
     const newNode = new Node(val);
-    if (this.head && this.tail) {
-      this.tail.next = newNode;
+    const oldtail = this.tail;
+
+    if (oldtail) {
       this.tail = newNode;
+      this.tail.prev = oldtail;
     } else {
-      this.head = newNode;
       this.tail = newNode;
     }
     this.length++;
   }
 
-  dequeue() {
+  pop() {
     if (this.length === 1) {
-      this.head = undefined;
       this.tail = undefined;
       this.length--;
     } else if (this.length > 1) {
-      this.head = this.head!.next;
+      this.tail = this.tail!.prev;
       this.length--;
     }
+
+    return undefined;
+  }
+
+  peek() {
+    if (this.tail) {
+      return this.tail;
+    }
+    return undefined;
+  }
+
+  isEmpty() {
+    if (this.length === 0) {
+      return true;
+    }
+    return false;
   }
 
   size() {
     return this.length;
   }
-
-  isEmpty() {
-    if (!this.head && !this.tail) return true;
-
-    return false;
-  }
 }
-
-export default Queue;
+export default Stack;
