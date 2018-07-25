@@ -1,4 +1,4 @@
-import Node from '../Node/Node';
+import Node from "../Node/Node";
 
 class LinkedList<T extends string | number> {
   tail?: Node<T>;
@@ -29,7 +29,7 @@ class LinkedList<T extends string | number> {
 
   search(searchItem: string | number) {
     if (this.length === 0) {
-      return 'List empty';
+      return "List empty";
     }
     let currentNode = this.head;
 
@@ -75,7 +75,7 @@ class LinkedList<T extends string | number> {
   }
 
   reverse() {
-    if (this.head === undefined || this.length === 0) return 'List empty';
+    if (this.head === undefined || this.length === 0) return this;
 
     let next = undefined;
     let current = this.head;

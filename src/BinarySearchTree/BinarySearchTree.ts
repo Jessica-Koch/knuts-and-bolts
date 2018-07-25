@@ -1,5 +1,5 @@
-import Node from './Node';
-import Queue from '../Queue/Queue';
+import Node from "./Node";
+import Queue from "../Queue/Queue";
 
 class BinarySearchTree<T extends string | number> {
   val?: string | number;
@@ -22,19 +22,12 @@ class BinarySearchTree<T extends string | number> {
   }
 
   insert(val: T) {
-    if (this.root === undefined) return;
-
-    if (!this.root) {
-      this.root = new Node(val);
-      return;
-    }
-
     let root = this.root;
     while (root) {
       if (val < root.value) {
         if (root.left === undefined) {
           root.left = new Node(val);
-          return root.left;
+          break;
         } else {
           root = root.left;
         }
@@ -51,7 +44,7 @@ class BinarySearchTree<T extends string | number> {
     }
   }
 
-  recursiveSearch(val: T, root?: Node<T>) {
+  recursiveSearch(val: T, root?: Node<T>): T | undefined {
     if (!root) return;
     else if (val === root.value) {
       return val;
@@ -62,6 +55,7 @@ class BinarySearchTree<T extends string | number> {
         ? this.recursiveSearch(val, root.right)
         : undefined;
     }
+    return undefined;
   }
 
   preorderTraversal(node?: Node<T>) {
@@ -112,11 +106,11 @@ class BinarySearchTree<T extends string | number> {
     return undefined;
   }
 
-  delete(val: T) {
-    // if (this.root === undefined) {
-    //   return;
-    // };
-  }
+  // delete(val: T) {
+  // if (this.root === undefined) {
+  //   return;
+  // };
+  // }
 }
 
 export default BinarySearchTree;
