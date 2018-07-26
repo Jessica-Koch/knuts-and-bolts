@@ -81,7 +81,7 @@ class LinkedList<T extends string | number> {
     }
     this.tail = this.head;
 
-    while (current !== undefined) {
+    while (current) {
       next = current.next;
       current.next = current.prev;
       current.prev = next;
@@ -92,7 +92,7 @@ class LinkedList<T extends string | number> {
 
       current = next;
     }
-    return;
+    return this;
   }
 }
 

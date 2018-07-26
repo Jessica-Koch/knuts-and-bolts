@@ -1,4 +1,4 @@
-import { Stack } from './Stack';
+import Stack  from './Stack';
 
 describe('Stacks', () => {
   let stack: Stack<string | number>;
@@ -13,7 +13,7 @@ describe('Stacks', () => {
   describe('initialization', () => {
     test('starts out empty', () => {
       expect(stack.size()).toBe(0);
-      expect(stack.tail).toBeNull();
+      expect(stack.tail).toBeUndefined();
     });
   });
 
@@ -26,7 +26,7 @@ describe('Stacks', () => {
       stack.push(100);
       stack.pop();
       expect(stack.size()).toBe(0);
-      expect(stack.tail).toBeNull();
+      expect(stack.tail).toBeUndefined();
     });
 
     test('can remove the sole item from the stack', () => {

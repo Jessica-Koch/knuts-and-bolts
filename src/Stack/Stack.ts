@@ -52,4 +52,4 @@ class Stack<T extends string | number> {
     return this.length;
   }
 }
-export { Stack };
+export default Stack;

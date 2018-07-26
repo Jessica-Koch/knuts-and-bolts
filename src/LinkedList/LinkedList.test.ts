@@ -143,7 +143,7 @@ describe('LinkedLists', () => {
       list.addToTail(300);
 
       const result = list.search(100);
-      expect(result).toBe(100);
+      expect(result!.value).toBe(100);
     });
 
     test('it should return if a node is not found', () => {
