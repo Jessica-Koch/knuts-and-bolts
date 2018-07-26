@@ -1,4 +1,4 @@
-import Node from "../Node/Node";
+import Node from '../Node/Node';
 
 class LinkedList<T extends string | number> {
   tail?: Node<T>;
@@ -28,9 +28,6 @@ class LinkedList<T extends string | number> {
   }
 
   search(searchItem: string | number) {
-    if (this.length === 0) {
-      return "List empty";
-    }
     let currentNode = this.head;
 
     while (currentNode) {
@@ -39,7 +36,7 @@ class LinkedList<T extends string | number> {
       }
       currentNode = currentNode.next;
     }
-    return false;
+    return;
   }
 
   deleteHead() {
@@ -67,7 +64,7 @@ class LinkedList<T extends string | number> {
     if (!val || (!this.tail && !this.head)) return;
     const itemToDelete = this.search(val);
 
-    if (itemToDelete) {
+    if (itemToDelete && itemToDelete.prev && itemToDelete.next) {
       itemToDelete.prev.next = itemToDelete.next;
       itemToDelete.next.prev = itemToDelete.prev;
       this.length--;
@@ -76,9 +73,12 @@ class LinkedList<T extends string | number> {
 
   reverse() {
     if (this.head === undefined || this.length === 0) return this;
-
+    let current;
     let next = undefined;
-    let current = this.head;
+
+    if (this.head) {
+      current = this.head;
+    }
     this.tail = this.head;
 
     while (current !== undefined) {
@@ -92,7 +92,7 @@ class LinkedList<T extends string | number> {
 
       current = next;
     }
-    return this;
+    return;
   }
 }
 

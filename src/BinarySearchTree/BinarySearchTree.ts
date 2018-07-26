@@ -1,5 +1,5 @@
-import Node from "./Node";
-import Queue from "../Queue/Queue";
+import Node from './Node';
+import Queue from '../Queue/Queue';
 
 class BinarySearchTree<T extends string | number> {
   val?: string | number;
@@ -42,6 +42,7 @@ class BinarySearchTree<T extends string | number> {
         }
       }
     }
+    return;
   }
 
   recursiveSearch(val: T, root?: Node<T>): T | undefined {
@@ -49,13 +50,15 @@ class BinarySearchTree<T extends string | number> {
     else if (val === root.value) {
       return val;
     } else if (val < root.value) {
-      return this.recursiveSearch(val, root.left);
+      root.left !== undefined
+        ? this.recursiveSearch(val, root.left)
+        : undefined;
     } else if (val > root.value) {
       root.right !== undefined
         ? this.recursiveSearch(val, root.right)
         : undefined;
     }
-    return undefined;
+    return;
   }
 
   preorderTraversal(node?: Node<T>) {
@@ -80,8 +83,8 @@ class BinarySearchTree<T extends string | number> {
 
     while (q.size() > 0) {
       const currentNode = q.top();
-      if (currentNode!.left !== undefined) {
-        q.enqueue(rootNode.left!.value);
+      if (currentNode!.prev !== undefined) {
+        q.enqueue(rootNode.prev.value);
       }
       q.enqueue(rootNode.right!.value);
     }
@@ -92,9 +95,11 @@ class BinarySearchTree<T extends string | number> {
 
   search(val: T) {
     if (val === undefined || this.root === undefined) return;
-    let root = this.root;
+    let root;
 
-    while (root !== undefined) {
+    root = this.root;
+
+    while (root) {
       if (val === root.value) {
         return val;
       } else if (val < root.value) {

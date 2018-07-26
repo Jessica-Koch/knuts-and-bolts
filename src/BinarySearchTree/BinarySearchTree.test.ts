@@ -1,21 +1,21 @@
-import BinarySearchTree from "./BinarySearchTree";
+import BinarySearchTree from './BinarySearchTree';
 
-describe("BinarySearchTrees", () => {
-  describe("initialization", () => {
-    test("it initializes without a root", () => {
+describe('BinarySearchTrees', () => {
+  describe('initialization', () => {
+    test('it initializes without a root', () => {
       const tree = new BinarySearchTree(1);
       expect(tree.root).toBeUndefined();
     });
   });
 
-  describe("recursiveInsert", () => {
-    test("the first item inserted should be the root of the tree", () => {
+  describe('recursiveInsert', () => {
+    test('the first item inserted should be the root of the tree', () => {
       const tree = new BinarySearchTree(1);
 
       expect(tree.root!.value).toBe(1);
     });
 
-    test("it should be able to insert values smaller than the root", () => {
+    test('it should be able to insert values smaller than the root', () => {
       const tree = new BinarySearchTree<number>(11);
       tree.recursiveInsert(tree.root, 6);
       tree.recursiveInsert(tree.root, 2);
@@ -24,7 +24,7 @@ describe("BinarySearchTrees", () => {
       expect(tree.root.left!.left!.value).toBe(2);
     });
 
-    test("it should be able to insert values larger than the root", () => {
+    test('it should be able to insert values larger than the root', () => {
       const tree = new BinarySearchTree<number>(11);
       tree.recursiveInsert(tree.root, 6);
       tree.recursiveInsert(tree.root, 19);
@@ -34,7 +34,7 @@ describe("BinarySearchTrees", () => {
       expect(tree.root.right!.right!.value).toBe(90);
     });
 
-    test("it should be able to insert values equal than the root", () => {
+    test('it should be able to insert values equal than the root', () => {
       const tree = new BinarySearchTree<number>(11);
       tree.recursiveInsert(tree.root, 11);
       expect(tree.root!.value).toBe(11);
@@ -42,13 +42,13 @@ describe("BinarySearchTrees", () => {
     });
   });
 
-  describe("insert", () => {
-    test("the first item inserted should be the root of the tree", () => {
+  describe('insert', () => {
+    test('the first item inserted should be the root of the tree', () => {
       const tree = new BinarySearchTree<number>(11);
       expect(tree.root!.value).toBe(11);
     });
 
-    test("it should be able to insert values smaller than the root", () => {
+    test('it should be able to insert values smaller than the root', () => {
       const tree = new BinarySearchTree<number>(11);
       tree.insert(6);
       tree.insert(9);
@@ -56,7 +56,7 @@ describe("BinarySearchTrees", () => {
       expect(tree.root.left!.value).toBe(6);
     });
 
-    test("it should be able to insert values larger than the root", () => {
+    test('it should be able to insert values larger than the root', () => {
       const tree = new BinarySearchTree<number>(11);
       tree.insert(6);
       tree.insert(19);
@@ -65,7 +65,7 @@ describe("BinarySearchTrees", () => {
       expect(tree.root.right!.value).toBe(19);
     });
   });
-  describe("recursiveSearch", () => {
+  describe('recursiveSearch', () => {
     const tree = new BinarySearchTree<number>(11);
     tree.insert(6);
     tree.insert(19);
@@ -73,30 +73,30 @@ describe("BinarySearchTrees", () => {
     tree.insert(4);
     tree.insert(10);
 
-    test("it should be able to find a node if present and less than root", () => {
+    test('it should be able to find a node if present and less than root', () => {
       const result = tree.recursiveSearch(4, tree.root);
 
       // tree.inOrder(tree.root);
       expect(result).toBe(4);
     });
 
-    test("it should be able to find a node if present and greater than root", () => {
+    test('it should be able to find a node if present and greater than root', () => {
       const result = tree.recursiveSearch(21, tree.root);
       expect(result).toBe(21);
     });
 
-    test("it should be able to find a node is equal to root", () => {
+    test('it should be able to find a node is equal to root', () => {
       const result = tree.recursiveSearch(11, tree.root);
       expect(result).toBe(11);
     });
 
-    test("it should return undefined if node is not found", () => {
+    test('it should return undefined if node is not found', () => {
       const result = tree.recursiveSearch(13, tree.root);
       expect(result).toBeUndefined();
     });
   });
 
-  describe("search", () => {
+  describe('search', () => {
     const tree = new BinarySearchTree<number>(11);
     tree.insert(6);
     tree.insert(19);
@@ -104,22 +104,22 @@ describe("BinarySearchTrees", () => {
     tree.insert(4);
     tree.insert(10);
 
-    test("it should be able to find a node if present and less than root", () => {
+    test('it should be able to find a node if present and less than root', () => {
       const result = tree.search(4);
       expect(result).toBe(4);
     });
 
-    test("it should be able to find a node if present and greater than root", () => {
+    test('it should be able to find a node if present and greater than root', () => {
       const result = tree.search(21);
       expect(result).toBe(21);
     });
 
-    test("it should be able to find a node is equal to root", () => {
+    test('it should be able to find a node is equal to root', () => {
       const result = tree.search(11);
       expect(result).toBe(11);
     });
 
-    test("it should return null if node is not found", () => {
+    test('it should return null if node is not found', () => {
       const result = tree.search(13);
       expect(result).toBeUndefined();
     });
