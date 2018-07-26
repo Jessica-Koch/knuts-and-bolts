@@ -5,6 +5,7 @@
   "main": "y",
   "scripts": {
     "build": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.js\"",
+    "clean": "rm -rf lib",
     "test": "jest --coverage --colors",
     "type-check": "tsc --noEmit"
   },

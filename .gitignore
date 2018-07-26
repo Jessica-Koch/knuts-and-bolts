@@ -3,3 +3,4 @@
 /false
 *.log
 /lib
+.vscode/
