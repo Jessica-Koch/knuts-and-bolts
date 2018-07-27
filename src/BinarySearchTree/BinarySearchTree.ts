@@ -44,17 +44,17 @@ class BinarySearchTree<T extends string | number> {
     }
     return;
   }
-
+  
   recursiveSearch(val: T, root?: Node<T>): T | undefined {
     if (!root) return;
     else if (val === root.value) {
       return val;
     } else if (val < root.value) {
-      root.left !== undefined
+      return root.left !== undefined
         ? this.recursiveSearch(val, root.left)
         : undefined;
     } else if (val > root.value) {
-      root.right !== undefined
+      return root.right !== undefined
         ? this.recursiveSearch(val, root.right)
         : undefined;
     }
@@ -77,19 +77,19 @@ class BinarySearchTree<T extends string | number> {
   printBreadth(rootNode?: Node<T>) {
     if (!rootNode) return;
 
-    const q = new Queue();
-    q.enqueue(rootNode.value);
+    const q = [];
+    q.push(rootNode.value);
     console.log(rootNode);
 
-    while (q.size() > 0) {
-      const currentNode = q.top();
+    while (q.length > 0) {
+      const currentNode = q[0];
       if (currentNode!.prev !== undefined) {
-        q.enqueue(rootNode.prev.value);
+        q.push(rootNode.prev.value);
       }
-      q.enqueue(rootNode.right!.value);
+      q.push(rootNode.right!.value);
+      console.log(currentNode);
     }
 
-    console.log(q.top());
     console.log();
   }
 

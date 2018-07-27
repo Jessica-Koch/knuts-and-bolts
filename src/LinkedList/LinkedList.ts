@@ -13,7 +13,7 @@ class LinkedList<T extends string | number> {
 
   addToHead(val: string | number) {
     const newNode = new Node(val, this.head);
-    this.head ? (this.head.prev = newNode) : (this.tail = newNode);
+    this.head ? this.head.prev = newNode : this.tail = newNode;
 
     this.head = newNode;
     this.length++;
@@ -21,7 +21,7 @@ class LinkedList<T extends string | number> {
 
   addToTail(val: string | number) {
     const newNode = new Node(val, undefined, this.tail);
-    this.tail ? (this.tail.next = newNode) : (this.head = newNode);
+    this.tail ? this.tail.next = newNode : this.head = newNode;
 
     this.tail = newNode;
     this.length++;
@@ -39,6 +39,9 @@ class LinkedList<T extends string | number> {
     return;
   }
 
+  /**
+   * @returns void
+   */
   deleteHead() {
     if (this.head === undefined) return;
     this.head = this.head.next;
@@ -48,40 +51,49 @@ class LinkedList<T extends string | number> {
     this.length--;
   }
 
+  /**
+   * @returns void
+   */
   deleteTail() {
     if (this.tail === undefined) return;
     this.tail = this.tail.prev;
 
-    if (this.tail) {
-      this.tail.next = undefined;
-    } else {
-      this.head = undefined;
-    }
+    // if old head present, set it to null, if not, set the tail to null
+    this.tail ? (this.tail.next = undefined) : (this.head = undefined);
     this.length--;
   }
 
+  /**
+   *
+   * @param val
+   * @returns void
+   */
   deleteValue(val: string | number) {
     if (!val || (!this.tail && !this.head)) return;
-    const itemToDelete = this.search(val);
-
-    if (itemToDelete && itemToDelete.prev && itemToDelete.next) {
-      itemToDelete.prev.next = itemToDelete.next;
-      itemToDelete.next.prev = itemToDelete.prev;
+    let itemToDelete = this.search(val);
+    if (itemToDelete) {
+      if (itemToDelete.prev && itemToDelete.next) {
+        itemToDelete.prev.next = itemToDelete.next;
+        itemToDelete.next.prev = itemToDelete.prev;
+      } else if (!itemToDelete.prev) {
+        this.head = itemToDelete.next;
+      } else if (!itemToDelete.next) {
+        this.tail = itemToDelete.prev;
+      }
       this.length--;
     }
   }
 
   reverse() {
-    if (this.head === undefined || this.length === 0) return this;
     let current;
+    if (this.head === undefined || this.length === 0) return this;
+    
+    current = this.head;
     let next = undefined;
 
-    if (this.head) {
-      current = this.head;
-    }
     this.tail = this.head;
 
-    while (current) {
+    while (current !== undefined ) {
       next = current.next;
       current.next = current.prev;
       current.prev = next;

@@ -2,9 +2,9 @@ import BinarySearchTree from './BinarySearchTree';
 
 describe('BinarySearchTrees', () => {
   describe('initialization', () => {
-    test('it initializes without a root', () => {
+    test('it initializes a root', () => {
       const tree = new BinarySearchTree(1);
-      expect(tree.root).toBeUndefined();
+      expect(tree.root.value).toBe(1);
     });
   });
 
@@ -75,8 +75,7 @@ describe('BinarySearchTrees', () => {
 
     test('it should be able to find a node if present and less than root', () => {
       const result = tree.recursiveSearch(4, tree.root);
-
-      // tree.inOrder(tree.root);
+      console.log('result------------------->', result)
       expect(result).toBe(4);
     });
 

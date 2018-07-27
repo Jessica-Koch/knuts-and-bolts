@@ -7,7 +7,7 @@
     "build": "tsc",
     "clean": "rm -rf lib",
     "coverage": "open ./coverage/index.html",
-    "test": "jest --coverage --colors",
+    "test": "jest --watch --coverage --colors",
     "type-check": "tsc --noEmit"
   },
   "presets": [

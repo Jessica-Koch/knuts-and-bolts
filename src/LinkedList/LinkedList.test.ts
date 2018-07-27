@@ -51,6 +51,7 @@ describe('LinkedLists', () => {
       expect(list.tail!.value).toBe(300);
     });
   });
+
   describe('deleteHead', () => {
     test('it should handle null gracefully', () => {
       list.deleteHead();
@@ -101,7 +102,7 @@ describe('LinkedLists', () => {
       list.addToTail(200);
       list.addToTail(300);
       expect(list.length).toBe(3);
-
+      expect(list.tail!.value).toBe(300);
       list.deleteTail();
       expect(list.length).toBe(2);
       expect(list.tail!.value).toBe(200);
@@ -122,12 +123,13 @@ describe('LinkedLists', () => {
       list.addToTail(200);
       list.addToTail(300);
       expect(list.length).toBe(3);
+      expect(list.tail!.value).toBe(300);
+      expect(list.head!.value).toBe(100);
 
       list.deleteValue(200);
       expect(list.length).toBe(2);
-      expect(list.search('puppy')).toBe(false);
-      expect(list.tail!.prev!.value).toBe(100);
-      expect(list.head!.next!.value).toBe(300);
+      expect(list.tail!.value).toBe(300);
+      expect(list.head!.value).toBe(100);
     });
   });
 
@@ -174,8 +176,7 @@ describe('LinkedLists', () => {
       list.addToTail(300);
 
       const reversed = list.reverse();
-
-      expect(reversed && reversed.head!.value).toBe(300);
+      expect(reversed.head!.value).toBe(300);
       expect(reversed && reversed.tail!.value).toBe(100);
     });
   });
