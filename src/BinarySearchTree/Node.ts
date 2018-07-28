@@ -8,6 +8,7 @@ class Node<T extends string | number> {
     this.value = value;
     this.left = undefined;
     this.right = undefined;
+    this.prev;
   }
 }
 
