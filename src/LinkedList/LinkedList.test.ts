@@ -123,7 +123,6 @@ describe("LinkedLists", () => {
       list.addToTail(200);
       list.addToTail(300);
 
-      console.log("addto tail list: ", list);
       expect(list.length).toBe(3);
       expect(list.tail!.value).toBe(300);
       expect(list.head!.value).toBe(100);
