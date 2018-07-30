@@ -1,6 +1,4 @@
 import Node from './Node';
-import Queue from '../Queue/Queue';
-
 class BinarySearchTree<T extends string | number> {
   val?: string | number;
   root: Node<T>;
@@ -74,24 +72,7 @@ class BinarySearchTree<T extends string | number> {
 
   postorderTraversal(node?: Node<T>) {}
 
-  printBreadth(rootNode?: Node<T>) {
-    if (!rootNode) return;
 
-    const q = [];
-    q.push(rootNode.value);
-    console.log(rootNode);
-
-    while (q.length > 0) {
-      const currentNode = q[0];
-      if (currentNode!.prev !== undefined) {
-        q.push(rootNode.prev.value);
-      }
-      q.push(rootNode.right!.value);
-      console.log(currentNode);
-    }
-
-    console.log();
-  }
 
   search(val: T) {
     if (val === undefined || this.root === undefined) return;

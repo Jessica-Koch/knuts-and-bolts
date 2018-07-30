@@ -123,13 +123,4 @@ describe('BinarySearchTrees', () => {
       expect(result).toBeUndefined();
     });
   });
-
-  // describe("delete", () => {
-  //   test("it should handle null gracefully", () => {
-  //     const tree = new BinarySearchTree();
-  //     expect(tree.delete(1)).toBeUndefined();
-  //   });
-
-  //   test("it should be able to delete a node from the tree", () => {});
-  // });
 });
