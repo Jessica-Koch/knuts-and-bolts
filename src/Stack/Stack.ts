@@ -1,4 +1,4 @@
-import Node from '../Node/Node';
+import Node from "../Node/Node";
 
 class Stack<T extends string | number> {
   tail?: Node<T>;
@@ -31,14 +31,14 @@ class Stack<T extends string | number> {
       this.length--;
     }
 
-    return undefined;
+    return;
   }
 
   peek() {
     if (this.tail) {
       return this.tail;
     }
-    return undefined;
+    return;
   }
 
   isEmpty() {

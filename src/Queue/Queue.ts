@@ -1,4 +1,4 @@
-import Node from '../Node/Node';
+import Node from "../Node/Node";
 
 class Queue<T extends string | number> {
   head?: Node<T>;
@@ -14,7 +14,7 @@ class Queue<T extends string | number> {
   enqueue(val: number | string) {
     const newNode = new Node(val);
     if (this.head && this.tail) {
-      this.tail!.next = newNode;
+      this.tail.next = newNode;
       this.tail = newNode;
     } else {
       this.head = newNode;

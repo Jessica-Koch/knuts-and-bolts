@@ -7,7 +7,8 @@
     "build": "tsc",
     "clean": "rm -rf lib",
     "coverage": "open ./coverage/index.html",
-    "test": "jest --watch --coverage --colors",
+    "test": "jest",
+    "test-watch": "jest --watch --coverage --colors",
     "type-check": "tsc --noEmit"
   },
   "presets": [
@@ -25,11 +26,12 @@
   "homepage": "https://github.com/Jessica-Koch/knuts-and-bolts#readme",
   "devDependencies": {
     "@types/jest": "^23.3.0",
-    "jest": "^23.4.1",
-    "jest-cli": "^23.4.0",
+    "coveralls": "^3.0.2",
+    "jest": "^23.4.2",
+    "jest-cli": "^23.4.2",
+    "lcov-parse": "^1.0.0",
     "ts-jest": "^23.0.1",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2"
-  },
-  "dependencies": {}
+  }
 }

@@ -1,0 +1,30 @@
+language: nodejs
+node_js:
+  - 'stable'
+
+sudo: false
+
+branches:
+  only:
+  - master
+
+before_script:
+  - npm run build
+
+install:
+  - npm uninstall typescript --no-save
+  - npm uninstall tslint --no-save
+  - npm install
+
+cache:
+  directories:
+    - node_modules
+
+jobs:
+  include:
+    - stage: Produce Coverage
+      node_js: node
+      script: test --coverage && cat lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+
+
+after_success: 'npm run coveralls'

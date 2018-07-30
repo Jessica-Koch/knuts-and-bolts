@@ -5,7 +5,6 @@
  */
 export const selectionSort = (arr: Array<number>) => {
   const length = arr.length;
-  if (length === 0) arr;
 
   for (let i = 0; i < length; i++) {
     let smallestIndex = i;
@@ -25,6 +24,11 @@ export const selectionSort = (arr: Array<number>) => {
   return arr;
 };
 
+/**
+ *
+ * @param arr
+ * @returns array
+ */
 export const bubbleSort = (arr: Array<number>) => {
   const length = arr.length;
   let isSorted = false;
@@ -39,6 +43,23 @@ export const bubbleSort = (arr: Array<number>) => {
         arr[i - 1] = temp;
       }
     }
+  }
+  return arr;
+};
+
+/**
+ *
+ * @param arr
+ * @returns array
+ */
+export const insertionSort = (arr: Array<number>) => {
+  let j;
+  const length = arr.length;
+
+  for (let i = 0; i < arr.length; i++) {
+    const currentUnsortedItem = arr[i];
+
+    console.log("currentUnsortedItem is currently", currentUnsortedItem);
   }
   return arr;
 };
