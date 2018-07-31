@@ -1,10 +1,10 @@
 language: nodejs
 node_js:
-  - 'node'
+  - node
 
 cache:
   directories:
-    - "node_modules"
+    - node_modules
 
 before_script:
   - npm run build
