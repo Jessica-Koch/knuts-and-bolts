@@ -1,4 +1,4 @@
-import Node from '../Node/Node';
+import Node from "../Node/Node";
 
 class LinkedList<T extends string | number> {
   tail?: Node<T>;
@@ -13,15 +13,25 @@ class LinkedList<T extends string | number> {
 
   addToHead(val: string | number) {
     const newNode = new Node(val, this.head);
-    this.head ? this.head.prev = newNode : this.tail = newNode;
+    if (this.head) {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+    } else {
+      this.tail = newNode;
+    }
 
     this.head = newNode;
     this.length++;
   }
 
   addToTail(val: string | number) {
-    const newNode = new Node(val, undefined, this.tail);
-    this.tail ? this.tail.next = newNode : this.head = newNode;
+    const newNode = new Node(val, undefined, undefined);
+    if (this.tail) {
+      this.tail.next = newNode;
+      newNode.prev = this.tail;
+    } else {
+      this.head = newNode;
+    }
 
     this.tail = newNode;
     this.length++;
@@ -58,7 +68,7 @@ class LinkedList<T extends string | number> {
     if (this.tail === undefined) return;
     this.tail = this.tail.prev;
 
-    // if old head present, set it to null, if not, set the tail to null
+    // if old tail present, set it to null, if not, set the head to null
     this.tail ? (this.tail.next = undefined) : (this.head = undefined);
     this.length--;
   }
@@ -87,13 +97,13 @@ class LinkedList<T extends string | number> {
   reverse() {
     let current;
     if (this.head === undefined || this.length === 0) return this;
-    
+
     current = this.head;
     let next = undefined;
 
     this.tail = this.head;
 
-    while (current !== undefined ) {
+    while (current !== undefined) {
       next = current.next;
       current.next = current.prev;
       current.prev = next;
