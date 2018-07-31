@@ -1,16 +1,10 @@
 language: nodejs
 node_js:
-  - 'stable'
+  - 'node'
 
-sudo: false
-
-branches:
-  only:
-  - master
+cache:
+  directories:
+    - "node_modules"
 
 before_script:
   - npm run build
-
-install:
-  - npm install
-
