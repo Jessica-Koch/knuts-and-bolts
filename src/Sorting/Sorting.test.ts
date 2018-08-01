@@ -1,4 +1,4 @@
-import {bubbleSort, selectionSort} from "./Sorting";
+import {bubbleSort, insertionSort, selectionSort} from "./Sorting";
 
 describe("Sorting", () => {
   describe("selectionSort", () => {

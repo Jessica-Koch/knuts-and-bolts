@@ -42,21 +42,22 @@ class BinarySearchTree<T extends string | number> {
     }
     return;
   }
-  
+
   recursiveSearch(val: T, root?: Node<T>): T | undefined {
     if (!root) return;
-    else if (val === root.value) {
+
+    if (val === root.value) {
       return val;
-    } else if (val < root.value) {
+    }
+    if (val < root.value) {
       return root.left !== undefined
         ? this.recursiveSearch(val, root.left)
         : undefined;
-    } else if (val > root.value) {
-      return root.right !== undefined
-        ? this.recursiveSearch(val, root.right)
-        : undefined;
     }
-    return;
+
+    return root.right !== undefined
+      ? this.recursiveSearch(val, root.right)
+      : undefined;
   }
 
   preorderTraversal(node?: Node<T>) {
@@ -71,8 +72,6 @@ class BinarySearchTree<T extends string | number> {
   inorderTraversal(node?: Node<T>) {}
 
   postorderTraversal(node?: Node<T>) {}
-
-
 
   search(val: T) {
     if (val === undefined || this.root === undefined) return;

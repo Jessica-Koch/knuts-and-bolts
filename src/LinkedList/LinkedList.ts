@@ -79,7 +79,8 @@ class LinkedList<T extends string | number> {
    * @returns void
    */
   deleteValue(val: string | number) {
-    if (!val || (!this.tail && !this.head)) return;
+    if (!this.tail && !this.head) return;
+
     let itemToDelete = this.search(val);
     if (itemToDelete) {
       if (itemToDelete.prev && itemToDelete.next) {

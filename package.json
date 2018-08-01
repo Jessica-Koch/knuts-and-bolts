@@ -7,7 +7,8 @@
     "build": "tsc",
     "clean": "rm -rf lib",
     "coverage": "open ./coverage/index.html",
-    "test": "jest --watch --coverage --colors",
+    "test": "jest --coverage --colors",
+    "test-watch": "jest --watch --coverage --colors",
     "type-check": "tsc --noEmit"
   },
   "presets": [
@@ -31,5 +32,7 @@
     "tslint": "^5.11.0",
     "typescript": "^2.9.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jest-coverage-badges": "^1.0.0"
+  }
 }
