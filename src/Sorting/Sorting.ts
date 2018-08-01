@@ -56,10 +56,13 @@ export const insertionSort = (arr: Array<number>) => {
   let j;
   const length = arr.length;
 
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < length; i++) {
     const currentUnsortedItem = arr[i];
-
-    console.log("currentUnsortedItem is currently", currentUnsortedItem);
+    for (j = i; j > 0 && currentUnsortedItem < arr[j - 1]; j--) {
+      arr[j] = arr[j - 1];
+    }
+    arr[j] = currentUnsortedItem;
   }
+
   return arr;
 };

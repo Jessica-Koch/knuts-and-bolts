@@ -1,0 +1,5 @@
+exclude_patterns:
+- "lib/"
+- "**/*.test.ts"
+- "**/*.config.js"
+- "node_modules/"

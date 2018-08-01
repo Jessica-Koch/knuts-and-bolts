@@ -20,4 +20,14 @@ describe("Sorting", () => {
       expect(bubbleSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });
+
+  describe("mergeSort", () => {
+    test("it should handle an empty array", () => {
+      expect(insertionSort([])).toEqual([]);
+    });
+
+    test("it should be able to sort an array of numbers", () => {
+      expect(insertionSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
+    });
+  });
 });
