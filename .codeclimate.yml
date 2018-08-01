@@ -3,3 +3,7 @@ exclude_patterns:
 - "**/*.test.ts"
 - "**/*.config.js"
 - "node_modules/"
+plugins:
+  tslint:
+    enabled: true
+    config: tslint.json
