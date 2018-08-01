@@ -21,7 +21,7 @@ describe("Sorting", () => {
     });
   });
 
-  describe("mergeSort", () => {
+  describe("insertionSort", () => {
     test("it should handle an empty array", () => {
       expect(insertionSort([])).toEqual([]);
     });
