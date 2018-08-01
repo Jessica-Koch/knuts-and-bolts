@@ -1,3 +1,4 @@
+import {swap} from '../utils/util'
 /**
  *
  * @param arr
@@ -38,9 +39,7 @@ export const bubbleSort = (arr: Array<number>) => {
     for (let i = 1; i < length; i++) {
       if (arr[i - 1] > arr[i]) {
         isSorted = false;
-        let temp = arr[i];
-        arr[i] = arr[i - 1];
-        arr[i - 1] = temp;
+        swap(arr[i], arr[i - 1])
       }
     }
   }
