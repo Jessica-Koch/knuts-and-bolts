@@ -1,4 +1,4 @@
-import Node from "../Node/Node";
+import Node from '../Node/Node';
 
 class LinkedList<T extends string | number> {
   tail?: Node<T>;
@@ -37,16 +37,18 @@ class LinkedList<T extends string | number> {
     this.length++;
   }
 
+  /**
+   *
+   * @param searchItem Node
+   * @returns Node | undefined
+   */
   search(searchItem: string | number) {
     let currentNode = this.head;
 
     while (currentNode) {
-      if (currentNode.value === searchItem) {
-        return currentNode;
-      }
+      if (currentNode.value === searchItem) return currentNode;
       currentNode = currentNode.next;
     }
-    return;
   }
 
   /**
@@ -64,6 +66,9 @@ class LinkedList<T extends string | number> {
   /**
    * @returns void
    */
+  /**
+   * @returns void
+   */
   deleteTail() {
     if (this.tail === undefined) return;
     this.tail = this.tail.prev;
@@ -76,7 +81,6 @@ class LinkedList<T extends string | number> {
   /**
    *
    * @param val
-   * @returns void
    */
   deleteValue(val: string | number) {
     if (!this.tail && !this.head) return;
@@ -86,11 +90,11 @@ class LinkedList<T extends string | number> {
       if (itemToDelete.prev && itemToDelete.next) {
         itemToDelete.prev.next = itemToDelete.next;
         itemToDelete.next.prev = itemToDelete.prev;
-      } else if (!itemToDelete.prev) {
-        this.head = itemToDelete.next;
-      } else if (!itemToDelete.next) {
-        this.tail = itemToDelete.prev;
       }
+      this.assignHeadToNextIfPrevUndefined(itemToDelete);
+
+      this.assignTailToPrevIfPrevUndefined(itemToDelete);
+
       this.length--;
     }
   }
@@ -116,6 +120,18 @@ class LinkedList<T extends string | number> {
       current = next;
     }
     return this;
+  }
+
+  private assignHeadToNextIfPrevUndefined(node: Node<T>) {
+    if (!node.prev) {
+      return (this.head = node.next);
+    }
+  }
+
+  private assignTailToPrevIfPrevUndefined(node: Node<T>) {
+    if (!node.next) {
+      return (this.tail = node.prev);
+    }
   }
 }
 

@@ -4,3 +4,4 @@ export const swap = (a: string | number, b: string | number) => {
   b = temp;
   return { a, b };
 };
+
