@@ -1,17 +1,17 @@
-import Node from '../Node/Node';
+import Node from "../Node/Node";
 
 class LinkedList<T extends string | number> {
-  tail?: Node<T>;
-  head?: Node<T>;
-  length: number;
+  public tail?: Node<T>;
+  public head?: Node<T>;
+  public length: number;
 
-  constructor() {
+  public constructor() {
     this.tail = undefined;
     this.head = undefined;
     this.length = 0;
   }
 
-  addToHead(val: string | number) {
+  public addToHead(val: string | number) {
     const newNode = new Node(val, this.head);
     if (this.head) {
       this.head.prev = newNode;
@@ -24,7 +24,7 @@ class LinkedList<T extends string | number> {
     this.length++;
   }
 
-  addToTail(val: string | number) {
+  public addToTail(val: string | number) {
     const newNode = new Node(val, undefined, undefined);
     if (this.tail) {
       this.tail.next = newNode;
@@ -42,7 +42,7 @@ class LinkedList<T extends string | number> {
    * @param searchItem Node
    * @returns Node | undefined
    */
-  search(searchItem: string | number) {
+  public search(searchItem: string | number) {
     let currentNode = this.head;
 
     while (currentNode) {
@@ -54,7 +54,7 @@ class LinkedList<T extends string | number> {
   /**
    * @returns void
    */
-  deleteHead() {
+  public deleteHead() {
     if (this.head === undefined) return;
     this.head = this.head.next;
 
@@ -69,7 +69,7 @@ class LinkedList<T extends string | number> {
   /**
    * @returns void
    */
-  deleteTail() {
+  public deleteTail() {
     if (this.tail === undefined) return;
     this.tail = this.tail.prev;
 
@@ -82,7 +82,7 @@ class LinkedList<T extends string | number> {
    *
    * @param val
    */
-  deleteValue(val: string | number) {
+  public deleteValue(val: string | number) {
     if (!this.tail && !this.head) return;
 
     let itemToDelete = this.search(val);
@@ -99,7 +99,7 @@ class LinkedList<T extends string | number> {
     }
   }
 
-  reverse() {
+  public reverse() {
     let current;
     if (this.head === undefined || this.length === 0) return this;
 

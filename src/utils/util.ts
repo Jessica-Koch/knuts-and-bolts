@@ -1,7 +1,11 @@
-export const swap = (a: string | number, b: string | number) => {
-  const temp = a;
-  a = b;
-  b = temp;
-  return { a, b };
+/**
+ *
+ * @param arr array to swap
+ * @param i first index
+ * @param j second index
+ * @returns array
+ */
+export const swap = (arr: Array<string | number>, i: number, j: number) => {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+  return arr;
 };
-
