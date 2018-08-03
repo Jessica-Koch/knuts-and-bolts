@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { swap } from '../utils/util';
-=======
-import {swap} from "../utils/util";
->>>>>>> d9dd0224c543ef2e16dac68d70a01e2421ed1710
 /**
  *
  * @param arr
