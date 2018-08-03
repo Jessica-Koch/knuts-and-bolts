@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { swap } from '../utils/util';
+=======
+import {swap} from "../utils/util";
+>>>>>>> d9dd0224c543ef2e16dac68d70a01e2421ed1710
 /**
  *
  * @param arr
@@ -16,9 +20,7 @@ export const selectionSort = (arr: Array<number>) => {
       }
     }
     if (smallestIndex !== i) {
-      let current = arr[i];
-      arr[i] = arr[smallestIndex];
-      arr[smallestIndex] = current;
+      swap(arr, i, smallestIndex);
     }
   }
 
@@ -39,7 +41,7 @@ export const bubbleSort = (arr: Array<number>) => {
     for (let i = 1; i < length; i++) {
       if (arr[i - 1] > arr[i]) {
         isSorted = false;
-        swap(arr[i], arr[i - 1]);
+        swap(arr, i, i - 1);
       }
     }
   }
@@ -59,12 +61,12 @@ export const insertionSort = (arr: Array<number>) => {
 
   for (let i = 0; i < length; i++) {
     const currentUnsortedItem = arr[i];
-    for (j = i; j > 0 && currentUnsortedItem < arr[j - 1]; j--) {
+
+    for (j = i; j > 0 && arr[j - 1] > currentUnsortedItem; j--) {
       arr[j] = arr[j - 1];
     }
     arr[j] = currentUnsortedItem;
   }
-
   return arr;
 };
 
