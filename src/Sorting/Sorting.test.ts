@@ -1,4 +1,10 @@
-import {bubbleSort, insertionSort, mergeSort, selectionSort} from "./Sorting";
+import {
+  bubbleSort,
+  insertionSort,
+  mergeSort,
+  selectionSort,
+  quickSort
+} from "./Sorting";
 
 describe("Sorting", () => {
   describe("selectionSort", () => {
@@ -38,6 +44,16 @@ describe("Sorting", () => {
 
     test("it should be able to sort an array of numbers", () => {
       expect(mergeSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
+    });
+  });
+
+  describe("quickSort", () => {
+    test("it should handle an empty array", () => {
+      expect(quickSort([])).toEqual([]);
+    });
+
+    test("it should be able to sort an array of numbers", () => {
+      expect(quickSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });
 });

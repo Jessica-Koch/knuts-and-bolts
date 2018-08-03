@@ -1,4 +1,4 @@
-import { swap } from '../utils/util';
+import {swap} from "../utils/util";
 /**
  *
  * @param arr
@@ -50,7 +50,6 @@ export const bubbleSort = (arr: Array<number>) => {
  * @returns array
  */
 export const insertionSort = (arr: Array<number>) => {
-  
   let j;
   const length = arr.length;
   if (length <= 1) return arr;
@@ -103,5 +102,15 @@ export const mergeSort = (arr: Array<number>) => {
   mergeSort(rightArray);
 
   merge(leftArray, rightArray, arr);
+  return arr;
+};
+
+const partition = () => {};
+
+export const quickSort = (arr: Array<number>) => {
+  const length = arr.length;
+
+  if (length <= 1) return arr;
+
   return arr;
 };
