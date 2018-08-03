@@ -1,4 +1,4 @@
-import {swap} from "../utils/util";
+import { swap } from '../utils/util';
 /**
  *
  * @param arr
@@ -50,8 +50,10 @@ export const bubbleSort = (arr: Array<number>) => {
  * @returns array
  */
 export const insertionSort = (arr: Array<number>) => {
+  
   let j;
   const length = arr.length;
+  if (length <= 1) return arr;
 
   for (let i = 0; i < length; i++) {
     const currentUnsortedItem = arr[i];
@@ -61,5 +63,45 @@ export const insertionSort = (arr: Array<number>) => {
     }
     arr[j] = currentUnsortedItem;
   }
+  return arr;
+};
+
+const merge = (
+  leftArray: Array<number>,
+  rightArray: Array<number>,
+  arr: Array<number>
+) => {
+  let index = 0;
+
+  while (leftArray.length && rightArray.length) {
+    if (rightArray[0] < leftArray[0]) {
+      arr[index++] = rightArray.shift() || 0;
+    } else {
+      arr[index++] = leftArray.shift() || 0;
+    }
+  }
+
+  while (leftArray.length) {
+    arr[index++] = leftArray.shift() || 0;
+  }
+
+  while (rightArray.length) {
+    arr[index++] = rightArray.shift() || 0;
+  }
+};
+
+export const mergeSort = (arr: Array<number>) => {
+  const length = arr.length;
+  if (length <= 1) return arr;
+
+  const midpoint = Math.floor(length / 2);
+
+  const leftArray = arr.slice(0, midpoint);
+  const rightArray = arr.slice(midpoint);
+
+  mergeSort(leftArray);
+  mergeSort(rightArray);
+
+  merge(leftArray, rightArray, arr);
   return arr;
 };
