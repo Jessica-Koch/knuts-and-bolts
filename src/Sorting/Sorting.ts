@@ -1,4 +1,4 @@
-import { swap } from '../utils/util';
+import {swap} from "../utils/util";
 /**
  *
  * @param arr
