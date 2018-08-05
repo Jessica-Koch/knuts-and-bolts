@@ -1,53 +1,67 @@
-import {bubbleSort, insertionSort, mergeSort, quickSort, selectionSort} from "./Sorting";
+import {
+  bubbleSort,
+  insertionSort,
+  mergeSort,
+  quickSort,
+  selectionSort
+} from './Sorting';
 
-describe("Sorting", () => {
-  describe("selectionSort", () => {
-    test("it should handle an empty array", () => {
+describe('Sorting', () => {
+  describe('selectionSort', () => {
+    test('it should handle an empty array', () => {
       expect(selectionSort([])).toEqual([]);
     });
 
-    test("it should sort an array of numbers", () => {
+    test('it should sort an array of numbers', () => {
       expect(selectionSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });
 
-  describe("bubbleSort", () => {
-    test("it should handle an empty array", () => {
+  describe('bubbleSort', () => {
+    test('it should handle an empty array', () => {
       expect(bubbleSort([])).toEqual([]);
     });
 
-    test("it should be able to sort an array of numbers", () => {
+    test('it should be able to sort an array of numbers', () => {
       expect(bubbleSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });
 
-  describe("insertionSort", () => {
-    test("it should handle an empty array", () => {
+  describe('insertionSort', () => {
+    test('it should handle an empty array', () => {
       expect(insertionSort([])).toEqual([]);
     });
 
-    test("it should be able to sort an array of numbers", () => {
+    test('it should be able to sort an array of numbers', () => {
       expect(insertionSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });
 
-  describe("mergeSort", () => {
-    test("it should handle an empty array", () => {
+  describe('mergeSort', () => {
+    test('it should handle an empty array', () => {
       expect(mergeSort([])).toEqual([]);
     });
 
-    test("it should be able to sort an array of numbers", () => {
+    test('it should be able to sort an array of numbers', () => {
       expect(mergeSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });
 
-  describe("quickSort", () => {
-    test("it should handle an empty array", () => {
-      expect(quickSort([])).toEqual([]);
+  describe('quickSort', () => {
+    test('it should handle an empty array', () => {
+      expect(quickSort([], 0, 0)).toEqual([]);
     });
 
-    test("it should be able to sort an array of numbers", () => {
-      expect(quickSort([2, 4, 1, 3, 5])).toEqual([1, 2, 3, 4, 5]);
+    test('it should be able to sort an array of numbers', () => {
+      const arr = [19, 22, 63, 105, 2, 46];
+      expect(quickSort(arr, 0, arr.length - 1)).toEqual([
+        2,
+        19,
+        22,
+        46,
+        63,
+        105
+      ]);
     });
   });
 });

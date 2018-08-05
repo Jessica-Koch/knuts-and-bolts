@@ -1,4 +1,4 @@
-import {swap} from "../utils/util";
+import { swap } from '../utils/util';
 /**
  *
  * @param arr
@@ -105,43 +105,64 @@ export const mergeSort = (arr: Array<number>) => {
   return arr;
 };
 
-const partition = (arr: Array<number>, left: number, right: number) => {
-let pivot = arr[Math.floor((right + left) / 2)]
-let l = left;
-let r = right;
+const partition = (items: Array<number>, left: number, right: number) => {
+  let pivot = items[Math.floor((right + left) / 2)];
+  let l = left;
+  let r = right;
 
-while(l<= r) {
-  while(arr[l] < pivot) {
-    l++
-  }
-  while(arr[r] > pivot) {
-    r--
+  console.log('**pivot is: ', pivot);
+  console.log('**left is: ', left);
+  console.log('**right is: ', right);
+
+  while (l <= r) {
+    while (items[l] < pivot) {
+      l++;
+      console.log('l is now pointing to: ', items[l]);
+    }
+
+    // If the right pointer is greater than the pivot, decrement it.
+    // In other words, move the pointer to the left.
+    while (items[r] > pivot) {
+      r--;
+      console.log('r is now pointing to: ', items[r]);
+    }
+
+    if (l <= r) {
+      console.log('** now swapping l and r pointers: ', items[l], items[r]);
+
+      swap(items, l, r);
+
+      // After swapping, increment/decrement the pointers respectively.
+      l++;
+      r--;
+
+      // console.log('l is now pointing to: ', items[l]);
+      // console.log('r is now pointing to: ', items[r]);
+    }
   }
 
-  while(l <=r) {
-    swap(arr, l, r)
-    l++;
-    r--
-  }
-}
   return l;
 };
 
-export const quickSort = (arr: Array<number>, leftIndex: number, rightIndex: number) => {
-  const length = arr.length;
+export const quickSort = (
+  arr: Array<number>,
+  leftIndex: number,
+  rightIndex: number
+) => {
+  let pivotIndex;
 
-  if (length > 1) {
+  if (arr.length > 1) {
+    pivotIndex = partition(arr, leftIndex, rightIndex);
 
-    let pivotIndex = partition(arr, leftIndex, rightIndex)
-  
-    if(leftIndex < pivotIndex - 1) {
-      quickSort(arr, leftIndex, pivotIndex - 1)
+    console.log('** pivot is: ', arr[pivotIndex]);
+
+    if (leftIndex < pivotIndex - 1) {
+      quickSort(arr, leftIndex, pivotIndex - 1);
     }
 
-    if(pivotIndex < rightIndex){
-      quickSort(arr, leftIndex, rightIndex)
+    if (pivotIndex < rightIndex) {
+      quickSort(arr, pivotIndex, rightIndex);
     }
-
-  };
+  }
   return arr;
 };
