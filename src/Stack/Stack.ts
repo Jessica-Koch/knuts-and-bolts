@@ -1,15 +1,15 @@
 import Node from "../Node/Node";
 
 class Stack<T extends string | number> {
-  tail?: Node<T>;
-  length: number;
+  public tail?: Node<T>;
+  public length: number;
 
   constructor() {
     this.tail = undefined;
     this.length = 0;
   }
 
-  push(val: string | number) {
+  public push(val: string | number) {
     const newNode = new Node(val);
     const oldtail = this.tail;
 
@@ -22,7 +22,7 @@ class Stack<T extends string | number> {
     this.length++;
   }
 
-  pop() {
+  public pop() {
     if (this.length === 1) {
       this.tail = undefined;
       this.length--;
@@ -34,21 +34,21 @@ class Stack<T extends string | number> {
     return;
   }
 
-  peek() {
+  public peek() {
     if (this.tail) {
       return this.tail;
     }
     return;
   }
 
-  isEmpty() {
+  public isEmpty() {
     if (this.length === 0) {
       return true;
     }
     return false;
   }
 
-  size() {
+  public size() {
     return this.length;
   }
 }

@@ -14,6 +14,8 @@ Clone this repository
 
 ```git@github.com:Jessica-Koch/knuts-and-bolts.git```
 
+Install the package dependencies:
+`npm install`
 ## Testing
 Knuts&Bolts uses Jest to run its tests.
 
@@ -21,3 +23,5 @@ Make sure to run the build,
 `npm run build`
 
 Now you're ready to run the tests, `npm run test`.
+
+Alternatively, run `npm run test-watch`

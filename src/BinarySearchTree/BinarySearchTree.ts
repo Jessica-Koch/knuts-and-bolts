@@ -1,12 +1,13 @@
 import Node from './Node';
 class BinarySearchTree<T extends string | number> {
-  val?: string | number;
-  root: Node<T>;
-  constructor(val: T) {
+  public val?: string | number;
+  public root: Node<T>;
+
+  public constructor(val: T) {
     this.root = new Node(val);
   }
 
-  recursiveInsert(root: Node<T>, val: T) {
+  public recursiveInsert(root: Node<T>, val: T) {
     if (val < root.value) {
       !root.left
         ? (root.left = new Node(val))
@@ -19,11 +20,16 @@ class BinarySearchTree<T extends string | number> {
     }
   }
 
-  insert(val: T) {
+  public insert(val: T) {
     let root = this.root;
     while (root) {
+      // let side = val < root.value ? 'left' : 'right';
+      
+      // let newRootVal = root[side] ? root[side] : new Node(val)
+
+      // root[side] = newRootVal;
       if (val < root.value) {
-        if (root.left === undefined) {
+        if (!root.left) {
           root.left = new Node(val);
           break;
         } else {
@@ -43,8 +49,8 @@ class BinarySearchTree<T extends string | number> {
     return;
   }
 
-  recursiveSearch(val: T, root?: Node<T>): T | undefined {
-    if (!root) return;
+  public recursiveSearch(val: T, root?: Node<T>): T | undefined {
+    if (!root) { return; }
 
     if (val === root.value) {
       return val;
@@ -60,21 +66,19 @@ class BinarySearchTree<T extends string | number> {
       : undefined;
   }
 
-  preorderTraversal(node?: Node<T>) {
-    if (!node || !this.root) return;
-
-    console.log(node.value);
+  public preorderTraversal(node?: Node<T>) {
+    if (!node || !this.root) { return; }
 
     this.preorderTraversal(node.left);
     this.preorderTraversal(node.right);
   }
 
-  inorderTraversal(node?: Node<T>) {}
+  public inorderTraversal(node?: Node<T>) {}
 
-  postorderTraversal(node?: Node<T>) {}
+  public postorderTraversal(node?: Node<T>) {}
 
-  search(val: T) {
-    if (val === undefined || this.root === undefined) return;
+  public search(val: T) {
+    if (val === undefined || this.root === undefined) { return; }
     let root;
 
     root = this.root;
@@ -90,12 +94,6 @@ class BinarySearchTree<T extends string | number> {
     }
     return undefined;
   }
-
-  // delete(val: T) {
-  // if (this.root === undefined) {
-  //   return;
-  // };
-  // }
 }
 
 export default BinarySearchTree;

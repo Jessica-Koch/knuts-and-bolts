@@ -4,12 +4,23 @@
   "description": "data structures and algorithms implemented in JavaScript",
   "main": "y",
   "scripts": {
-    "build": "tsc",
+    "build": "./node_modules/typescript/bin/tsc",
     "clean": "rm -rf lib",
     "coverage": "open ./coverage/index.html",
+    "fixlint": "./node_modules/tslint/bin/tslint --project ./ --fix",
+    "lint": "./node_modules/.bin/tslint ./src/**/*.ts",
+    "precise-commits": "./node_modules/precise-commits/bin/index.js",
+    "prepush": "npm run lint && precise-commits && npm run test",
     "test": "jest --coverage --colors",
     "test-watch": "jest --watch --coverage --colors",
-    "type-check": "tsc --noEmit"
+    "tslint-check": "./node_modules/tslint-config-prettier/bin/check.js ./tslint.json",
+    "type-check": "./node_modules/typescript/bin/tsc --noEmit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build",
+      "pre-push": "npm run lint && precise-commits && npm run test"
+    }
   },
   "presets": [
     "@babel/env"
@@ -19,17 +30,21 @@
     "url": "git+ssh://git@github.com/Jessica-Koch/knuts-and-bolts.git"
   },
   "author": "Jessica Koch",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Jessica-Koch/knuts-and-bolts/issues"
   },
   "homepage": "https://github.com/Jessica-Koch/knuts-and-bolts#readme",
   "devDependencies": {
     "@types/jest": "^23.3.0",
+    "husky": "^1.0.0-rc.13",
     "jest": "^23.4.1",
     "jest-cli": "^23.4.0",
+    "precise-commits": "^1.0.2",
+    "prettier": "1.14.0",
     "ts-jest": "^23.0.1",
     "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.14.0",
     "typescript": "^2.9.2"
   }
 }

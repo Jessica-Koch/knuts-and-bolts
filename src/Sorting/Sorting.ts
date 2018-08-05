@@ -1,10 +1,10 @@
-import {swap} from "../utils/util";
+import { swap } from '../utils/util';
 /**
  *
  * @param arr
  * @returns array
  */
-export const selectionSort = (arr: Array<number>) => {
+export const selectionSort = (arr: number[]) => {
   const length = arr.length;
 
   for (let i = 0; i < length; i++) {
@@ -28,7 +28,7 @@ export const selectionSort = (arr: Array<number>) => {
  * @param arr
  * @returns array
  */
-export const bubbleSort = (arr: Array<number>) => {
+export const bubbleSort = (arr: number[]) => {
   const length = arr.length;
   let isSorted = false;
 
@@ -49,10 +49,10 @@ export const bubbleSort = (arr: Array<number>) => {
  * @param arr
  * @returns array
  */
-export const insertionSort = (arr: Array<number>) => {
+export const insertionSort = (arr: number[]) => {
   let j;
   const length = arr.length;
-  if (length <= 1) return arr;
+  if (length <= 1) { return arr; }
 
   for (let i = 0; i < length; i++) {
     const currentUnsortedItem = arr[i];
@@ -66,9 +66,9 @@ export const insertionSort = (arr: Array<number>) => {
 };
 
 const merge = (
-  leftArray: Array<number>,
-  rightArray: Array<number>,
-  arr: Array<number>
+  leftArray: number[],
+  rightArray: number[],
+  arr: number[]
 ) => {
   let index = 0;
 
@@ -89,9 +89,9 @@ const merge = (
   }
 };
 
-export const mergeSort = (arr: Array<number>) => {
+export const mergeSort = (arr: number[]) => {
   const length = arr.length;
-  if (length <= 1) return arr;
+  if (length <= 1) { return arr; }
 
   const midpoint = Math.floor(length / 2);
 
@@ -105,43 +105,53 @@ export const mergeSort = (arr: Array<number>) => {
   return arr;
 };
 
-const partition = (arr: Array<number>, left: number, right: number) => {
-let pivot = arr[Math.floor((right + left) / 2)]
-let l = left;
-let r = right;
+export const partition = (
+  items: number[],
+  left: number,
+  right: number,
+) => {
+  const pivot = items[Math.floor((right + left) / 2)];
+  let l = left;
+  let r = right;
+  while (l <= r) {
+    while (items[l] < pivot) { l++; }
 
-while(l<= r) {
-  while(arr[l] < pivot) {
-    l++
-  }
-  while(arr[r] > pivot) {
-    r--
+    // If the right pointer is greater than the pivot, decrement it.
+    // In other words, move the pointer to the left.
+    while (items[r] > pivot) {
+      r--;
+    }
+
+    if (l <= r) {
+      swap(items, l, r);
+
+      // After swapping, increment/decrement the pointers respectively.
+      l++;
+      r--;
+    }
   }
 
-  while(l <=r) {
-    swap(arr, l, r)
-    l++;
-    r--
-  }
-}
+  console.log("returned l: ", l);
   return l;
 };
 
-export const quickSort = (arr: Array<number>, leftIndex: number, rightIndex: number) => {
-  const length = arr.length;
+export const quickSort = (
+  arr: number[],
+  leftIndex: number,
+  rightIndex: number
+) => {
+  let pivotIndex;
 
-  if (length > 1) {
+  if (arr.length > 1) {
+    pivotIndex = partition(arr, leftIndex, rightIndex);
 
-    let pivotIndex = partition(arr, leftIndex, rightIndex)
-  
-    if(leftIndex < pivotIndex - 1) {
-      quickSort(arr, leftIndex, pivotIndex - 1)
+    if (leftIndex < pivotIndex - 1) {
+      quickSort(arr, leftIndex, pivotIndex - 1);
     }
 
-    if(pivotIndex < rightIndex){
-      quickSort(arr, leftIndex, rightIndex)
+    if (pivotIndex < rightIndex) {
+      quickSort(arr, pivotIndex, rightIndex);
     }
-
-  };
+  }
   return arr;
 };
