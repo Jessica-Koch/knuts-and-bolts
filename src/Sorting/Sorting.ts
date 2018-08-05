@@ -50,7 +50,6 @@ export const bubbleSort = (arr: Array<number>) => {
  * @returns array
  */
 export const insertionSort = (arr: Array<number>) => {
-  
   let j;
   const length = arr.length;
   if (length <= 1) return arr;
@@ -103,5 +102,46 @@ export const mergeSort = (arr: Array<number>) => {
   mergeSort(rightArray);
 
   merge(leftArray, rightArray, arr);
+  return arr;
+};
+
+const partition = (arr: Array<number>, left: number, right: number) => {
+let pivot = arr[Math.floor((right + left) / 2)]
+let l = left;
+let r = right;
+
+while(l<= r) {
+  while(arr[l] < pivot) {
+    l++
+  }
+  while(arr[r] > pivot) {
+    r--
+  }
+
+  while(l <=r) {
+    swap(arr, l, r)
+    l++;
+    r--
+  }
+}
+  return l;
+};
+
+export const quickSort = (arr: Array<number>, leftIndex: number, rightIndex: number) => {
+  const length = arr.length;
+
+  if (length > 1) {
+
+    let pivotIndex = partition(arr, leftIndex, rightIndex)
+  
+    if(leftIndex < pivotIndex - 1) {
+      quickSort(arr, leftIndex, pivotIndex - 1)
+    }
+
+    if(pivotIndex < rightIndex){
+      quickSort(arr, leftIndex, rightIndex)
+    }
+
+  };
   return arr;
 };
