@@ -1,9 +1,9 @@
 import Node from "../Node/Node";
 
 class Queue<T extends string | number> {
-  head?: Node<T>;
-  length: number;
-  tail?: Node<T>;
+  public head?: Node<T>;
+  public length: number;
+  public tail?: Node<T>;
 
   constructor() {
     this.head = undefined;
@@ -11,7 +11,7 @@ class Queue<T extends string | number> {
     this.length = 0;
   }
 
-  enqueue(val: number | string) {
+  public enqueue(val: number | string) {
     const newNode = new Node(val);
     if (this.head && this.tail) {
       this.tail.next = newNode;
@@ -23,7 +23,7 @@ class Queue<T extends string | number> {
     this.length++;
   }
 
-  dequeue() {
+  public dequeue() {
     if (this.length === 1) {
       this.head = undefined;
       this.tail = undefined;
@@ -34,18 +34,18 @@ class Queue<T extends string | number> {
     }
   }
 
-  top() {
-    if (this.head) return this.head;
+  public top() {
+    if (this.head) { return this.head; }
 
     return undefined;
   }
 
-  size() {
+  public size() {
     return this.length;
   }
 
-  isEmpty() {
-    if (!this.head && !this.tail) return true;
+  public isEmpty() {
+    if (!this.head && !this.tail) { return true; }
 
     return false;
   }

@@ -50,7 +50,7 @@ class BinarySearchTree<T extends string | number> {
   }
 
   public recursiveSearch(val: T, root?: Node<T>): T | undefined {
-    if (!root) return;
+    if (!root) { return; }
 
     if (val === root.value) {
       return val;
@@ -67,9 +67,7 @@ class BinarySearchTree<T extends string | number> {
   }
 
   public preorderTraversal(node?: Node<T>) {
-    if (!node || !this.root) return;
-
-    console.log(node.value);
+    if (!node || !this.root) { return; }
 
     this.preorderTraversal(node.left);
     this.preorderTraversal(node.right);
@@ -80,7 +78,7 @@ class BinarySearchTree<T extends string | number> {
   public postorderTraversal(node?: Node<T>) {}
 
   public search(val: T) {
-    if (val === undefined || this.root === undefined) return;
+    if (val === undefined || this.root === undefined) { return; }
     let root;
 
     root = this.root;

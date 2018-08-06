@@ -1,7 +1,7 @@
 class Node<T extends string | number> {
-  value: string | number;
-  next?: Node<T>;
-  prev?: Node<T>;
+  public value: string | number;
+  public next?: Node<T>;
+  public prev?: Node<T>;
 
   constructor(value: T, next?: Node<T>, prev?: Node<T>) {
     this.value = value;

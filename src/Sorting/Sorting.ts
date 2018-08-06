@@ -4,7 +4,7 @@ import { swap } from '../utils/util';
  * @param arr
  * @returns array
  */
-export const selectionSort = (arr: Array<number>) => {
+export const selectionSort = (arr: number[]) => {
   const length = arr.length;
 
   for (let i = 0; i < length; i++) {
@@ -28,7 +28,7 @@ export const selectionSort = (arr: Array<number>) => {
  * @param arr
  * @returns array
  */
-export const bubbleSort = (arr: Array<number>) => {
+export const bubbleSort = (arr: number[]) => {
   const length = arr.length;
   let isSorted = false;
 
@@ -49,10 +49,10 @@ export const bubbleSort = (arr: Array<number>) => {
  * @param arr
  * @returns array
  */
-export const insertionSort = (arr: Array<number>) => {
+export const insertionSort = (arr: number[]) => {
   let j;
   const length = arr.length;
-  if (length <= 1) return arr;
+  if (length <= 1) { return arr; }
 
   for (let i = 0; i < length; i++) {
     const currentUnsortedItem = arr[i];
@@ -66,9 +66,9 @@ export const insertionSort = (arr: Array<number>) => {
 };
 
 const merge = (
-  leftArray: Array<number>,
-  rightArray: Array<number>,
-  arr: Array<number>
+  leftArray: number[],
+  rightArray: number[],
+  arr: number[]
 ) => {
   let index = 0;
 
@@ -89,9 +89,9 @@ const merge = (
   }
 };
 
-export const mergeSort = (arr: Array<number>) => {
+export const mergeSort = (arr: number[]) => {
   const length = arr.length;
-  if (length <= 1) return arr;
+  if (length <= 1) { return arr; }
 
   const midpoint = Math.floor(length / 2);
 
@@ -106,15 +106,15 @@ export const mergeSort = (arr: Array<number>) => {
 };
 
 export const partition = (
-  items: Array<number>,
+  items: number[],
   left: number,
   right: number,
 ) => {
-  let pivot = items[Math.floor((right + left) / 2)];
+  const pivot = items[Math.floor((right + left) / 2)];
   let l = left;
   let r = right;
   while (l <= r) {
-    while (items[l] < pivot) l++;
+    while (items[l] < pivot) { l++; }
 
     // If the right pointer is greater than the pivot, decrement it.
     // In other words, move the pointer to the left.
@@ -136,7 +136,7 @@ export const partition = (
 };
 
 export const quickSort = (
-  arr: Array<number>,
+  arr: number[],
   leftIndex: number,
   rightIndex: number
 ) => {

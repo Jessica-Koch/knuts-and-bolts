@@ -1,20 +1,37 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended",
-        "tslint:latest",
-        "tslint-config-prettier"
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint:latest", "tslint-config-prettier"],
+  "jsRules": {},
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": ["coverage/**", "./lib/**"]
+  },
+  "rules": {
+    "arrow-return-shorthand": true,
+    "class-name": true,
+    "curly": [true, "ignore-same-line"],
+    "encoding": true,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore",
+      "allow-trailing-underscore",
+      "allow-pascal-case"
     ],
-    "jsRules": {},
-    "rulesDirectory": [],
-    "linterOptions": {
-        "exclude": ["coverage/**", "./lib/**"]
-    },
-    "rules": {
-        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-trailing-underscore", "allow-pascal-case"],
-        "interface-name": false,
-        "object-literal-sort-keys": false,
-        "no-implicit-dependencies": [true, "dev"],
-        "max-classes-per-file": false
-    }
+    "interface-name": false,
+    "no-consecutive-blank-lines": [true, 2],
+    "no-irregular-whitespace": true,
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "case-insensitive"
+      }
+    ],
+    "no-implicit-dependencies": [true, "dev"],
+    "max-classes-per-file": false,
+    "no-unnecessary-callback-wrapper": true
+  }
 }
