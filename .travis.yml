@@ -6,5 +6,6 @@ before_script:
 install:
   - npm install
 script:
--'if ["$TRAVIS_PULL_REQUEST" != "false" ]; then precise-commits --formatter --whitelist="src/**/*.ts" --check-only --head=$TRAVIS_PULL_REQUEST_SHA --base=$(git merge-base HEAD $TRAVIS_BRANCH); fi'
   - npm run test
+directories:
+  - node_modules
