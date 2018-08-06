@@ -4,8 +4,8 @@ import {
   mergeSort,
   partition,
   quickSort,
-  selectionSort
-} from './Sorting';
+  selectionSort,
+} from "./Sorting";
 
 describe('Sorting', () => {
   describe('selectionSort', () => {
@@ -53,17 +53,17 @@ describe('Sorting', () => {
       expect(quickSort([], 0, 0)).toEqual([]);
     });
 
-    test('it should be able to sort an array of numbers', () => {
+    test("it should be able to sort an array of numbers", () => {
       const arr = [2, 4, 1, 3, 5];
       expect(quickSort(arr, 0, arr.length - 1)).toEqual([1, 2, 3, 4, 5]);
     });
 
-    describe('partition', () => {
-      it('should return the middle element', () => {
+    describe("partition", () => {
+      it("should return the middle element", () => {
         const arr = [2, 4, 1, 3, 5];
         expect(partition(arr, 0, arr.length - 1)).toBe(1);
       });
-      it('should return the middle-left element when array is even', () => {
+      it("should return the middle-left element when array is even", () => {
         const arr = [19, 22, 63, 105, 2, 46];
         expect(partition(arr, 0, arr.length - 1)).toBe(4);
       });

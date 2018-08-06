@@ -8,7 +8,7 @@
     "clean": "rm -rf lib",
     "coverage": "open ./coverage/index.html",
     "fixlint": "npm run type-check && node ./node_modules/tslint/bin/tslint --fix",
-    "lint": "./node_modules/.bin/tslint .",
+    "lint": "./node_modules/.bin/tslint ./src/**/*.ts",
     "precise-commits": "./node_modules/precise-commits/bin/index.js",
     "precommit": "npm run precise-commits",
     "prepush": "npm run precise-commits && npm run test",

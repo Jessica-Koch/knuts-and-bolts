@@ -28,11 +28,10 @@ class BinarySearchTree<T extends string | number> {
       // let newRootVal = root[side] ? root[side] : new Node(val)
 
       // root[side] = newRootVal;
-
       if (val < root.value) {
         if (!root.left) {
           root.left = new Node(val);
-              break;
+          break;
         } else {
           root = root.left;
         }

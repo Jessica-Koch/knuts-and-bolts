@@ -105,16 +105,19 @@ export const mergeSort = (arr: Array<number>) => {
   return arr;
 };
 
-export const partition = (items: Array<number>, left: number, right: number) => {
+export const partition = (
+  items: Array<number>,
+  left: number,
+  right: number,
+) => {
   let pivot = items[Math.floor((right + left) / 2)];
   let l = left;
   let r = right;
   while (l <= r) {
-
-            while (items[l] < pivot) {
-      l++;
-      console.log('l: ', l);
-    }
+    while (items[l] < pivot) {
+              l++;
+              console.log("l: ", l);
+            }
 
     // If the right pointer is greater than the pivot, decrement it.
     // In other words, move the pointer to the left.
@@ -128,11 +131,10 @@ export const partition = (items: Array<number>, left: number, right: number) => 
       // After swapping, increment/decrement the pointers respectively.
       l++;
       r--;
-
     }
   }
 
-  console.log('returned l: ', l);
+  console.log("returned l: ", l);
   return l;
 };
 
