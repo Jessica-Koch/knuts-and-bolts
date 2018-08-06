@@ -10,8 +10,7 @@
     "fixlint": "npm run type-check && node ./node_modules/tslint/bin/tslint --fix",
     "lint": "./node_modules/.bin/tslint ./src/**/*.ts",
     "precise-commits": "./node_modules/precise-commits/bin/index.js",
-    "precommit": "npm run precise-commits",
-    "prepush": "npm run precise-commits && npm run test",
+    "prepush": "npm run lint && precise-commits && npm run test",
     "test": "jest --coverage --colors",
     "test-watch": "jest --watch --coverage --colors",
     "type-check": "./node_modules/typescript/bin/tsc --noEmit"

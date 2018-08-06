@@ -114,10 +114,7 @@ export const partition = (
   let l = left;
   let r = right;
   while (l <= r) {
-    while (items[l] < pivot) {
-              l++;
-              console.log("l: ", l);
-            }
+    while (items[l] < pivot) l++;
 
     // If the right pointer is greater than the pivot, decrement it.
     // In other words, move the pointer to the left.
