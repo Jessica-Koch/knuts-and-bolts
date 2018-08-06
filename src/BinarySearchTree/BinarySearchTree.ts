@@ -1,4 +1,4 @@
-import Node from './Node';
+import Node from "./Node";
 class BinarySearchTree<T extends string | number> {
   public val?: string | number;
   public root: Node<T>;
@@ -23,11 +23,6 @@ class BinarySearchTree<T extends string | number> {
   public insert(val: T) {
     let root = this.root;
     while (root) {
-      // let side = val < root.value ? 'left' : 'right';
-      
-      // let newRootVal = root[side] ? root[side] : new Node(val)
-
-      // root[side] = newRootVal;
       if (val < root.value) {
         if (!root.left) {
           root.left = new Node(val);
@@ -45,12 +40,15 @@ class BinarySearchTree<T extends string | number> {
           root = root.right;
         }
       }
+    
     }
     return;
   }
 
   public recursiveSearch(val: T, root?: Node<T>): T | undefined {
-    if (!root) { return; }
+    if (!root) {
+      return;
+    }
 
     if (val === root.value) {
       return val;
@@ -67,14 +65,18 @@ class BinarySearchTree<T extends string | number> {
   }
 
   public preorderTraversal(node?: Node<T>) {
-    if (!node || !this.root) { return; }
+    if (!node || !this.root) {
+      return;
+    }
 
     this.preorderTraversal(node.left);
     this.preorderTraversal(node.right);
   }
 
   public search(val: T) {
-    if (val === undefined || this.root === undefined) { return; }
+    if (val === undefined || this.root === undefined) {
+      return;
+    }
     let root;
 
     root = this.root;
