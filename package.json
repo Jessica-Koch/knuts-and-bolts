@@ -7,17 +7,18 @@
     "build": "./node_modules/typescript/bin/tsc",
     "clean": "rm -rf lib",
     "coverage": "open ./coverage/index.html",
-    "fixlint": "npm run type-check && node ./node_modules/tslint/bin/tslint --fix",
+    "fixlint": "./node_modules/tslint/bin/tslint --project ./ --fix",
     "lint": "./node_modules/.bin/tslint ./src/**/*.ts",
     "precise-commits": "./node_modules/precise-commits/bin/index.js",
     "prepush": "npm run lint && precise-commits && npm run test",
     "test": "jest --coverage --colors",
     "test-watch": "jest --watch --coverage --colors",
+    "tslint-check": "./node_modules/tslint-config-prettier/bin/check.js ./tslint.json",
     "type-check": "./node_modules/typescript/bin/tsc --noEmit"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precise-commits",
+      "pre-commit": "npm run build",
       "pre-push": "npm run lint && precise-commits && npm run test"
     }
   },
@@ -43,6 +44,7 @@
     "prettier": "1.14.0",
     "ts-jest": "^23.0.1",
     "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.14.0",
     "typescript": "^2.9.2"
   }
 }
