@@ -105,42 +105,34 @@ export const mergeSort = (arr: Array<number>) => {
   return arr;
 };
 
-const partition = (items: Array<number>, left: number, right: number) => {
+export const partition = (items: Array<number>, left: number, right: number) => {
   let pivot = items[Math.floor((right + left) / 2)];
   let l = left;
   let r = right;
-
-  console.log('**pivot is: ', pivot);
-  console.log('**left is: ', left);
-  console.log('**right is: ', right);
-
   while (l <= r) {
-    while (items[l] < pivot) {
+
+            while (items[l] < pivot) {
       l++;
-      console.log('l is now pointing to: ', items[l]);
+      console.log('l: ', l);
     }
 
     // If the right pointer is greater than the pivot, decrement it.
     // In other words, move the pointer to the left.
     while (items[r] > pivot) {
       r--;
-      console.log('r is now pointing to: ', items[r]);
     }
 
     if (l <= r) {
-      console.log('** now swapping l and r pointers: ', items[l], items[r]);
-
       swap(items, l, r);
 
       // After swapping, increment/decrement the pointers respectively.
       l++;
       r--;
 
-      // console.log('l is now pointing to: ', items[l]);
-      // console.log('r is now pointing to: ', items[r]);
     }
   }
 
+  console.log('returned l: ', l);
   return l;
 };
 
@@ -153,8 +145,6 @@ export const quickSort = (
 
   if (arr.length > 1) {
     pivotIndex = partition(arr, leftIndex, rightIndex);
-
-    console.log('** pivot is: ', arr[pivotIndex]);
 
     if (leftIndex < pivotIndex - 1) {
       quickSort(arr, leftIndex, pivotIndex - 1);

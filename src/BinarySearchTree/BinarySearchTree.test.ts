@@ -52,7 +52,7 @@ describe("BinarySearchTrees", () => {
       const tree = new BinarySearchTree<number>(11);
       tree.insert(6);
       tree.insert(9);
-      expect(tree.root!.value).toBe(11);
+      expect(tree.root.value).toBe(11);
       expect(tree.root.left!.value).toBe(6);
     });
 
