@@ -15,6 +15,12 @@
     "test-watch": "jest --watch --coverage --colors",
     "type-check": "./node_modules/typescript/bin/tsc --noEmit"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precise-commits",
+      "pre-push": "npm run lint && precise-commits && npm run test"
+    }
+  },
   "presets": [
     "@babel/env"
   ],
