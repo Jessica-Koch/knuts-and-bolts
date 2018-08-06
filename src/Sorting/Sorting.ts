@@ -73,11 +73,7 @@ const merge = (
   let index = 0;
 
   while (leftArray.length && rightArray.length) {
-    if (rightArray[0] < leftArray[0]) {
-      arr[index++] = rightArray.shift() || 0;
-    } else {
-      arr[index++] = leftArray.shift() || 0;
-    }
+    (rightArray[0] < leftArray[0]) ? arr[index++] = rightArray.shift() || 0 : arr[index++] = leftArray.shift() || 0;
   }
 
   while (leftArray.length) {
@@ -131,7 +127,6 @@ export const partition = (
     }
   }
 
-  console.log("returned l: ", l);
   return l;
 };
 

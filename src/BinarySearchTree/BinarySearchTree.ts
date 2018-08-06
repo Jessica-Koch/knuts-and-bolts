@@ -73,10 +73,6 @@ class BinarySearchTree<T extends string | number> {
     this.preorderTraversal(node.right);
   }
 
-  public inorderTraversal(node?: Node<T>) {}
-
-  public postorderTraversal(node?: Node<T>) {}
-
   public search(val: T) {
     if (val === undefined || this.root === undefined) { return; }
     let root;
