@@ -8,7 +8,7 @@
     "jsRules": {},
     "rulesDirectory": [],
     "linterOptions": {
-        "exclude": ["coverage/**", "./dist/**"]
+        "exclude": ["coverage/**", "./lib/**"]
     },
     "rules": {
         "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-trailing-underscore", "allow-pascal-case"],
