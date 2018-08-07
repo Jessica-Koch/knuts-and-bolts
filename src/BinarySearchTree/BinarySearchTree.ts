@@ -1,4 +1,4 @@
-import Node from './Node';
+import Node from "./Node";
 class BinarySearchTree<T extends string | number> {
   public val?: string | number;
   public root: Node<T>;
@@ -23,17 +23,21 @@ class BinarySearchTree<T extends string | number> {
   public insert(val: T) {
     const root = this.root;
     while (root) {
-      const side: keyof Node<T> = val < root.value ? 'left' : 'right';
+      console.log("top", root);
+      const side: keyof Node<T> = val < root.value ? "left" : "right";
 
       const newRootVal = root[side] || new Node(val);
 
       root[side] = newRootVal;
+      console.log(root);
     }
     return;
   }
 
   public recursiveSearch(val: T, root?: Node<T>): T | undefined {
-    if (!root) { return; }
+    if (!root) {
+      return;
+    }
 
     if (val === root.value) {
       return val;
@@ -50,14 +54,18 @@ class BinarySearchTree<T extends string | number> {
   }
 
   public preorderTraversal(node?: Node<T>) {
-    if (!node || !this.root) { return; }
+    if (!node || !this.root) {
+      return;
+    }
 
     this.preorderTraversal(node.left);
     this.preorderTraversal(node.right);
   }
 
   public search(val: T) {
-    if (val === undefined || this.root === undefined) { return; }
+    if (val === undefined || this.root === undefined) {
+      return;
+    }
     let root;
 
     root = this.root;
@@ -75,4 +83,7 @@ class BinarySearchTree<T extends string | number> {
   }
 }
 
+const tree = new BinarySearchTree<number>(11);
+tree.insert(6);
+console.log("tree: ", tree);
 export default BinarySearchTree;
