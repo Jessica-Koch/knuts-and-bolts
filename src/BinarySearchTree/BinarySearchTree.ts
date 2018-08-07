@@ -21,30 +21,13 @@ class BinarySearchTree<T extends string | number> {
   }
 
   public insert(val: T) {
-    let root = this.root;
+    const root = this.root;
     while (root) {
-      // let side = val < root.value ? 'left' : 'right';
-      
-      // let newRootVal = root[side] ? root[side] : new Node(val)
+      const side: keyof Node<T> = val < root.value ? 'left' : 'right';
 
-      // root[side] = newRootVal;
-      if (val < root.value) {
-        if (!root.left) {
-          root.left = new Node(val);
-          break;
-        } else {
-          root = root.left;
-        }
-      }
+      const newRootVal = root[side] || new Node(val);
 
-      if (val >= root.value) {
-        if (!root.right) {
-          root.right = new Node(val);
-          break;
-        } else {
-          root = root.right;
-        }
-      }
+      root[side] = newRootVal;
     }
     return;
   }
