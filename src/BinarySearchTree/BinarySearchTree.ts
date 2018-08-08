@@ -8,39 +8,24 @@ class BinarySearchTree<T extends string | number> {
   }
 
   public recursiveInsert(root: Node<T>, val: T) {
-    if (val < root.value) {
-      !root.left
-        ? (root.left = new Node(val))
-        : this.recursiveInsert(root.left, val);
-    }
-    if (val >= root.value) {
-      !root.right
-        ? (root.right = new Node(val))
-        : this.recursiveInsert(root.right, val);
-    }
+    const side = this.leftOrRight(root, val);
+
+    !root[side]
+      ? (root[side] = new Node(val))
+      : this.recursiveInsert(root[side]!, val);
   }
 
   public insert(val: T) {
     let root = this.root;
     while (root) {
-      if (val < root.value) {
-        if (!root.left) {
-          root.left = new Node(val);
-          break;
-        } else {
-          root = root.left;
-        }
-      }
+      const side = this.leftOrRight(root, val);
 
-      if (val >= root.value) {
-        if (!root.right) {
-          root.right = new Node(val);
-          break;
-        } else {
-          root = root.right;
-        }
+      if (!root[side]) {
+        root[side] = new Node(val);
+        break;
+      } else {
+        root = root[side]!;
       }
-    
     }
     return;
   }
@@ -49,18 +34,13 @@ class BinarySearchTree<T extends string | number> {
     if (!root) {
       return;
     }
-
+    const side = this.leftOrRight(root, val);
     if (val === root.value) {
       return val;
     }
-    if (val < root.value) {
-      return root.left !== undefined
-        ? this.recursiveSearch(val, root.left)
-        : undefined;
-    }
 
-    return root.right !== undefined
-      ? this.recursiveSearch(val, root.right)
+    return root[side] !== undefined
+      ? this.recursiveSearch(val, root[side])
       : undefined;
   }
 
@@ -82,16 +62,18 @@ class BinarySearchTree<T extends string | number> {
     root = this.root;
 
     while (root) {
+      const side = this.leftOrRight(root, val);
       if (val === root.value) {
         return val;
-      } else if (val < root.value) {
-        root = root.left;
-      } else if (val > root.value) {
-        root = root.right;
+      } else {
+        root = root[side];
       }
     }
     return undefined;
   }
+
+  private leftOrRight = (root: Node<T>, val: T) =>
+    val < root.value ? "left" : "right";
 }
 
 export default BinarySearchTree;

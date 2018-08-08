@@ -3,3 +3,4 @@ exclude_patterns:
 - "**/*.test.ts"
 - "**/*.config.js"
 - "node_modules/"
+- ".prettierrc.js"
