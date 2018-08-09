@@ -24,4 +24,4 @@ Make sure to run the build,
 
 Now you're ready to run the tests, `npm run test`.
 
-Alternatively, run `npm run test-watch`
+Alternatively, run `npm run test-watch` which will watch for code changes. 

@@ -8,28 +8,22 @@ class BinarySearchTree<T extends string | number> {
   }
 
   public recursiveInsert(root: Node<T>, val: T) {
-    if (val < root.value) {
-      !root.left
-        ? (root.left = new Node(val))
-        : this.recursiveInsert(root.left, val);
-    }
-    if (val >= root.value) {
-      !root.right
-        ? (root.right = new Node(val))
-        : this.recursiveInsert(root.right, val);
-    }
+    const side = this.leftOrRight(root, val);
+    const rs = root[side];
+    rs ? this.recursiveInsert(rs, val) : (root[side] = new Node(val));
   }
 
   public insert(val: T) {
-    const root = this.root;
+    let root = this.root;
     while (root) {
-      console.log("top", root);
-      const side: keyof Node<T> = val < root.value ? "left" : "right";
+      const side = this.leftOrRight(root, val);
 
-      const newRootVal = root[side] || new Node(val);
-
-      root[side] = newRootVal;
-      console.log(root);
+      if (!root[side]) {
+        root[side] = new Node(val);
+        break;
+      } else {
+        root = root[side]!;
+      }
     }
     return;
   }
@@ -38,18 +32,13 @@ class BinarySearchTree<T extends string | number> {
     if (!root) {
       return;
     }
-
     if (val === root.value) {
       return val;
     }
-    if (val < root.value) {
-      return root.left !== undefined
-        ? this.recursiveSearch(val, root.left)
-        : undefined;
-    }
+    const side = this.leftOrRight(root, val);
 
-    return root.right !== undefined
-      ? this.recursiveSearch(val, root.right)
+    return root[side] !== undefined
+      ? this.recursiveSearch(val, root[side])
       : undefined;
   }
 
@@ -71,19 +60,18 @@ class BinarySearchTree<T extends string | number> {
     root = this.root;
 
     while (root) {
+      const side = this.leftOrRight(root, val);
       if (val === root.value) {
         return val;
-      } else if (val < root.value) {
-        root = root.left;
-      } else if (val > root.value) {
-        root = root.right;
+      } else {
+        root = root[side];
       }
     }
     return undefined;
   }
+
+  private leftOrRight = (root: Node<T>, val: T) =>
+    val < root.value ? "left" : "right";
 }
 
-const tree = new BinarySearchTree<number>(11);
-tree.insert(6);
-console.log("tree: ", tree);
 export default BinarySearchTree;
