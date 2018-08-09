@@ -72,15 +72,13 @@ class LinkedList<T extends string | number> {
    * @returns void
    */
   public deleteTail() {
+    if (this.tail === undefined) return;
 
-    this.deleteNode('tail')
-    // if (this.tail === undefined) return;
+    this.tail = this.tail.prev;
 
-    // this.tail = this.tail.prev;
-
-    // // if old tail present, set it to null, if not, set the head to null
-    // this.tail ? (this.tail.next = undefined) : (this.head = undefined);
-    // this.length--;
+    // if old tail present, set it to null, if not, set the head to null
+    this.tail ? (this.tail.next = undefined) : (this.head = undefined);
+    this.length--;
   }
 
   /**
@@ -130,22 +128,12 @@ class LinkedList<T extends string | number> {
     headOrTail: "head" | "tail",
     node: Node<T>
   ) {
-      if (headOrTail === "head" && !node.prev) {
-        return (this.head = node.next);
-      }
-      if (headOrTail === "tail" && !node.next) {
-        return (this.tail = node.prev);
-      }
+    if (headOrTail === "head" && !node.prev) {
+      return (this.head = node.next);
     }
-  
-  private deleteNode = (headOrTail: 'head' | 'tail') => {
-    if (this[headOrTail] === undefined) return;
-
-    this[headOrTail] = this[headOrTail]!.prev;
-
-    // if old tail present, set it to null, if not, set the head to null
-    this.tail ? (this.tail.next = undefined) : (this.head = undefined);
-    this.length--;
+    if (headOrTail === "tail" && !node.next) {
+      return (this.tail = node.prev);
+    }
   }
 }
 
