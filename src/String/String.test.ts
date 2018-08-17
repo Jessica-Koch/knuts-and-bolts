@@ -1,4 +1,4 @@
-import { numOccur } from "./String";
+import { numOccur, removeVowels } from "./String";
 
 describe("String", () => {
   describe("numOccur", () => {
@@ -7,6 +7,15 @@ describe("String", () => {
     });
     it("counts the number of occurrances in a string", () => {
       expect(numOccur("p", "puppy")).toBe(3);
+    });
+  });
+
+  describe("removeVowels", () => {
+    it("returns 0 for an empty string", () => {
+      expect(removeVowels("")).toBe("");
+    });
+    it("counts the number of occurrances in a string", () => {
+      expect(removeVowels("abcdefgh")).toBe('bcdfgh');
     });
   });
 });
