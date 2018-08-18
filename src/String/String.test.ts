@@ -15,7 +15,7 @@ describe("String", () => {
       expect(removeVowels("")).toBe("");
     });
     it("counts the number of occurrances in a string", () => {
-      expect(removeVowels("abcdefgh")).toBe('bcdfgh');
+      expect(removeVowels("abcdefgh")).toBe("bcdfgh");
     });
   });
 });
