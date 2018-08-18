@@ -71,18 +71,18 @@ describe('Queues', () => {
     test('it returns true if the queue is empty', () => {
       expect(queue.size()).toBe(0);
     });
-    test('it returns the length of the queueue', () => {
+    test("it returns the length of the queueue", () => {
       queue.enqueue(100);
       expect(queue.size()).toBe(1);
     });
   });
 
-  describe('top', () => {
-    test('it returns undefined if the queue is empty', () => {
+  describe("top", () => {
+    test("it returns undefined if the queue is empty", () => {
       expect(queue.top()).toBeUndefined();
     });
 
-    test('it returns the top item in the queue', () => {
+    test("it returns the top item in the queue", () => {
       queue.enqueue(100);
       expect(queue.top()!.value).toBe(100);
     });
