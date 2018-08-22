@@ -73,6 +73,11 @@ describe("BinarySearchTrees", () => {
     tree.insert(4);
     tree.insert(10);
 
+    test("it should return undefined if there is no root", () => {
+      const result = tree.recursiveSearch(4, undefined);
+      expect(result).toBeUndefined();
+    });
+
     test("it should be able to find a node if present and less than root", () => {
       const result = tree.recursiveSearch(4, tree.root);
       expect(result).toBe(4);
@@ -101,6 +106,11 @@ describe("BinarySearchTrees", () => {
     tree.insert(21);
     tree.insert(4);
     tree.insert(10);
+
+    test("returns undefined if no value is passed", () => {
+      const result = tree.search(undefined!);
+      expect(result).toBeUndefined();
+    });
 
     test("it should be able to find a node if present and less than root", () => {
       const result = tree.search(4);

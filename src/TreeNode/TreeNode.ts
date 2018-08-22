@@ -1,7 +1,7 @@
-class Node<T extends string | number> {
+class TreeNode<T extends string | number> {
   public value: string | number;
-  public right?: Node<T>;
-  public left?: Node<T>;
+  public right?: TreeNode<T>;
+  public left?: TreeNode<T>;
 
   public constructor(value: T) {
     this.value = value;
@@ -10,4 +10,4 @@ class Node<T extends string | number> {
   }
 }
 
-export default Node;
+export default TreeNode;

@@ -5,7 +5,7 @@
  * @param j second index
  * @returns array
  */
-export const swap = (arr: Array<string | number>, i: number, j: number) => {
+export const swap = (arr: any[], i: number, j: number) => {
   [arr[i], arr[j]] = [arr[j], arr[i]];
   return arr;
 };

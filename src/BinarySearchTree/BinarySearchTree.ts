@@ -1,16 +1,16 @@
-import Node from "./Node";
+import TreeNode from "../TreeNode/TreeNode";
 class BinarySearchTree<T extends string | number> {
   public val?: string | number;
-  public root: Node<T>;
+  public root: TreeNode<T>;
 
   public constructor(val: T) {
-    this.root = new Node(val);
+    this.root = new TreeNode(val);
   }
 
-  public recursiveInsert(root: Node<T>, val: T) {
+  public recursiveInsert(root: TreeNode<T>, val: T) {
     const side = this.leftOrRight(root, val);
     const rs = root[side];
-    rs ? this.recursiveInsert(rs, val) : (root[side] = new Node(val));
+    rs ? this.recursiveInsert(rs, val) : (root[side] = new TreeNode(val));
   }
 
   public insert(val: T) {
@@ -19,7 +19,7 @@ class BinarySearchTree<T extends string | number> {
       const side = this.leftOrRight(root, val);
 
       if (!root[side]) {
-        root[side] = new Node(val);
+        root[side] = new TreeNode(val);
         break;
       } else {
         root = root[side]!;
@@ -28,7 +28,7 @@ class BinarySearchTree<T extends string | number> {
     return;
   }
 
-  public recursiveSearch(val: T, root?: Node<T>): T | undefined {
+  public recursiveSearch(val: T, root?: TreeNode<T>): T | undefined {
     if (!root) {
       return;
     }
@@ -42,7 +42,7 @@ class BinarySearchTree<T extends string | number> {
       : undefined;
   }
 
-  public preorderTraversal(node?: Node<T>) {
+  public preorderTraversal(node?: TreeNode<T>) {
     if (!node || !this.root) {
       return;
     }
@@ -70,7 +70,7 @@ class BinarySearchTree<T extends string | number> {
     return undefined;
   }
 
-  private leftOrRight = (root: Node<T>, val: T) =>
+  private leftOrRight = (root: TreeNode<T>, val: T) =>
     val < root.value ? "left" : "right";
 }
 

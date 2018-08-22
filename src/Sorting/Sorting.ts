@@ -1,4 +1,5 @@
-import { swap } from '../utils/util';
+import { swap } from "../utils/util";
+import Heap from "../Heap/Heap";
 /**
  *
  * @param arr
@@ -52,7 +53,9 @@ export const bubbleSort = (arr: number[]) => {
 export const insertionSort = (arr: number[]) => {
   let j;
   const length = arr.length;
-  if (length <= 1) { return arr; }
+  if (length <= 1) {
+    return arr;
+  }
 
   for (let i = 0; i < length; i++) {
     const currentUnsortedItem = arr[i];
@@ -65,15 +68,13 @@ export const insertionSort = (arr: number[]) => {
   return arr;
 };
 
-const merge = (
-  leftArray: number[],
-  rightArray: number[],
-  arr: number[]
-) => {
+const merge = (leftArray: number[], rightArray: number[], arr: number[]) => {
   let index = 0;
 
   while (leftArray.length && rightArray.length) {
-    (rightArray[0] < leftArray[0]) ? arr[index++] = rightArray.shift() || 0 : arr[index++] = leftArray.shift() || 0;
+    rightArray[0] < leftArray[0]
+      ? (arr[index++] = rightArray.shift() || 0)
+      : (arr[index++] = leftArray.shift() || 0);
   }
 
   while (leftArray.length) {
@@ -87,7 +88,9 @@ const merge = (
 
 export const mergeSort = (arr: number[]) => {
   const length = arr.length;
-  if (length <= 1) { return arr; }
+  if (length <= 1) {
+    return arr;
+  }
 
   const midpoint = Math.floor(length / 2);
 
@@ -101,16 +104,14 @@ export const mergeSort = (arr: number[]) => {
   return arr;
 };
 
-export const partition = (
-  items: number[],
-  left: number,
-  right: number,
-) => {
+export const partition = (items: number[], left: number, right: number) => {
   const pivot = items[Math.floor((right + left) / 2)];
   let l = left;
   let r = right;
   while (l <= r) {
-    while (items[l] < pivot) { l++; }
+    while (items[l] < pivot) {
+      l++;
+    }
 
     // If the right pointer is greater than the pivot, decrement it.
     // In other words, move the pointer to the left.
@@ -149,4 +150,10 @@ export const quickSort = (
     }
   }
   return arr;
+};
+
+export const heapSort = (arr: any[]) => {
+  if (arr.length <= 1) return arr;
+  const heap = new Heap(arr);
+  // return heap.heapSort();
 };

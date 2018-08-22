@@ -12,9 +12,9 @@
     "precise-commits": "./node_modules/precise-commits/bin/index.js",
     "prepush": "npm run lint && precise-commits && npm run test",
     "test": "jest --coverage --colors",
-    "test-watch": "jest --watch --coverage --colors",
     "tslint-check": "./node_modules/tslint-config-prettier/bin/check.js ./tslint.json",
-    "type-check": "./node_modules/typescript/bin/tsc --noEmit"
+    "type-check": "./node_modules/typescript/bin/tsc --noEmit",
+    "watch-tests": "jest --watch --coverage --colors"
   },
   "husky": {
     "hooks": {
