@@ -2,7 +2,7 @@
   "name": "knuts-and-bolts",
   "version": "1.0.0",
   "description": "data structures and algorithms implemented in JavaScript",
-  "main": "y",
+  "main": "n",
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc",
     "clean": "rm -rf lib",
@@ -25,10 +25,7 @@
   "presets": [
     "@babel/env"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/Jessica-Koch/knuts-and-bolts.git"
-  },
+  "repository": "git+ssh://git@github.com/Jessica-Koch/knuts-and-bolts.git",
   "author": "Jessica Koch",
   "license": "MIT",
   "bugs": {
@@ -46,5 +43,6 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.14.0",
     "typescript": "^2.9.2"
-  }
+  },
+  "private": false
 }
