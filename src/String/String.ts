@@ -18,7 +18,9 @@ export const removeVowels = (str: string): string => {
   if (str.length) {
     const ch = str.slice(0, 1);
 
-    ch === "a" || ch === "e" || ch === "i" || ch === "o" || ch === "u" ? (str = removeVowels(str.substr(1))) : (str = ch + removeVowels(str.slice(1)));
+    ch === "a" || ch === "e" || ch === "i" || ch === "o" || ch === "u"
+      ? (str = removeVowels(str.substr(1)))
+      : (str = ch + removeVowels(str.slice(1)));
   }
   return str;
 };
