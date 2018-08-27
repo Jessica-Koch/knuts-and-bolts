@@ -1,8 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-[![Coverage Status](https://coveralls.io/repos/github/Jessica-Koch/knuts-and-bolts/badge.svg)](https://coveralls.io/github/Jessica-Koch/knuts-and-bolts)
-[![Build Status](https://travis-ci.org/Jessica-Koch/knuts-and-bolts.svg?branch=master)](https://travis-ci.org/Jessica-Koch/knuts-and-bolts)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e84dabc153e587f81ada/maintainability)](https://codeclimate.com/github/Jessica-Koch/knuts-and-bolts/maintainability)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/Jessica-Koch/knuts-and-bolts.svg?branch=master)](https://travis-ci.org/Jessica-Koch/knuts-and-bolts) [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/e84dabc153e587f81ada/maintainability)](https://codeclimate.com/github/Jessica-Koch/knuts-and-bolts/maintainability)
 
 # Knuts & Bolts
 
