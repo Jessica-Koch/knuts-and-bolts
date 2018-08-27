@@ -1,5 +1,6 @@
 import {
   bubbleSort,
+  countingSort,
   insertionSort,
   mergeSort,
   partition,
@@ -67,6 +68,13 @@ describe("Sorting", () => {
         const arr = [19, 22, 63, 105, 2, 46];
         expect(partition(arr, 0, arr.length - 1)).toBe(4);
       });
+    });
+  });
+
+  describe("countingSort", () => {
+    test("it should be able to sort an array of numbers", () => {
+      const arr = [9, 4, 1, 7, 9, 1, 2, 0];
+      expect(countingSort(arr, 0, 9)).toEqual([0, 1, 1, 2, 4, 7, 9, 9]);
     });
   });
 });
