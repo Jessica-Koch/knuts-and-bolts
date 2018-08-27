@@ -1,5 +1,4 @@
 import { swap } from "../utils/util";
-import Heap from "../Heap/Heap";
 /**
  *
  * @param arr
@@ -150,10 +149,4 @@ export const quickSort = (
     }
   }
   return arr;
-};
-
-export const heapSort = (arr: any[]) => {
-  if (arr.length <= 1) return arr;
-  const heap = new Heap(arr);
-  // return heap.heapSort();
 };

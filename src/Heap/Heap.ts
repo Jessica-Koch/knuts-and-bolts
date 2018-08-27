@@ -17,10 +17,23 @@ class Heap {
   }
 
   public delete() {
-    const arr = this.items.shift();
+    this.items.shift();
     this.size--;
-    this.buildHeap(arr);
+    this.heapify(this.items, 0, this.size);
   }
+
+  public sort = () => {
+    const n = this.items.length;
+
+    for (let i = n / 2 - 1; i >= 0; i--) {
+      this.heapify(this.items, n, i);
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+      swap(this.items, 0, i);
+      this.heapify(this.items, i, 0);
+    }
+  };
 
   private buildHeap(i: number) {
     const parentIdx = Math.floor(i / 2);
@@ -30,37 +43,33 @@ class Heap {
     if (this.items[i] <= this.items[parentIdx]) return;
 
     swap(this.items, i, parentIdx);
+
     this.buildHeap(parentIdx);
   }
 
   /**
    * Function that compares elements and determines if they are swappable
+   * @param arr array
    * @param i current index
    * @param max index of last item in heap
    */
-  private heapify(heap: any[], i: number, max: number) {
-    while (i < max) {
-      let index = i;
+  private heapify(arr: any[], arrSize: number, i: number) {
+    let max = i;
+    const leftChild = 2 * i + 1;
+    const rightChild = leftChild + 1;
 
-      const leftChild = 2 * i + 1;
-      const righChild = leftChild + 1;
-
-      if (leftChild < max && heap[leftChild] > heap[index]) {
-        index = leftChild;
-      }
-
-      if (righChild < max && heap[righChild] > heap[index]) {
-        index = righChild;
-      }
-
-      if (index === i) {
-        return;
-      }
-
-      swap(heap, i, index);
-
-      i = index;
+    if (leftChild < this.size && this.items[leftChild] > this.items[max]) {
+      max = leftChild;
     }
+
+    if (rightChild < this.size && this.items[rightChild] > this.items[max]) {
+      max = rightChild;
+    }
+
+    if (max === i) return;
+
+    swap(this.items, i, max);
+    this.heapify(arr, arrSize, max);
   }
 }
 
