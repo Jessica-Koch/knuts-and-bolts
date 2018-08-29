@@ -1,4 +1,5 @@
-import Node from "../Node/Node";
+import Node from '../Node/Node';
+import { swap } from '../utils/util';
 
 class LinkedList<T extends string | number> {
   public tail?: Node<T>;
@@ -94,8 +95,8 @@ class LinkedList<T extends string | number> {
         itemToDelete.prev.next = itemToDelete.next;
         itemToDelete.next.prev = itemToDelete.prev;
       }
-      this.assignNodeToNextIfPrevUndefined("head", itemToDelete);
-      this.assignNodeToNextIfPrevUndefined("tail", itemToDelete);
+      this.assignNodeToNextIfPrevUndefined('head', itemToDelete);
+      this.assignNodeToNextIfPrevUndefined('tail', itemToDelete);
 
       this.length--;
     }
@@ -125,13 +126,13 @@ class LinkedList<T extends string | number> {
   }
 
   private assignNodeToNextIfPrevUndefined(
-    headOrTail: "head" | "tail",
+    headOrTail: 'head' | 'tail',
     node: Node<T>
   ) {
-    if (headOrTail === "head" && !node.prev) {
+    if (headOrTail === 'head' && !node.prev) {
       return (this.head = node.next);
     }
-    if (headOrTail === "tail" && !node.next) {
+    if (headOrTail === 'tail' && !node.next) {
       return (this.tail = node.prev);
     }
   }

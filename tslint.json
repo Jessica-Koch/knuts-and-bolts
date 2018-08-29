@@ -32,6 +32,7 @@
     ],
     "no-implicit-dependencies": [true, "dev"],
     "max-classes-per-file": false,
-    "no-unnecessary-callback-wrapper": true
+    "no-unnecessary-callback-wrapper": true,
+    "quotemark": [true, "single", "jsx-single", "avoid-escape"]
   }
 }
