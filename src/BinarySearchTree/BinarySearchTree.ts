@@ -1,4 +1,4 @@
-import TreeNode from "../TreeNode/TreeNode";
+import TreeNode from '../TreeNode/TreeNode';
 class BinarySearchTree<T extends string | number> {
   public val?: string | number;
   public root: TreeNode<T>;
@@ -71,7 +71,7 @@ class BinarySearchTree<T extends string | number> {
   }
 
   private leftOrRight = (root: TreeNode<T>, val: T) =>
-    val < root.value ? "left" : "right";
+    val < root.value ? 'left' : 'right';
 }
 
 export default BinarySearchTree;

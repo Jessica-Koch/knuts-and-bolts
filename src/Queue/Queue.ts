@@ -1,4 +1,4 @@
-import Node from "../Node/Node";
+import Node from '../Node/Node';
 
 class Queue<T extends string | number> {
   public head?: Node<T>;

@@ -1,10 +1,10 @@
-import Node from "./Node";
+import Node from './Node';
 
-describe("Node", () => {
-  test("Instantiates with value", () => {
-    const n = new Node("bloop");
+describe('Node', () => {
+  test('Instantiates with value', () => {
+    const n = new Node('bloop');
 
-    expect(n.value).toBe("bloop");
+    expect(n.value).toBe('bloop');
     expect(n.next).toBeUndefined();
     expect(n.prev).toBeUndefined();
   });
