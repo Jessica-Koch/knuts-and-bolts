@@ -150,3 +150,22 @@ export const quickSort = (
   }
   return arr;
 };
+
+export const countingSort = (array: number[], min: number, max: number) => {
+  let i;
+  let z = 0;
+  const count = new Array(max + 1).fill(0);
+
+  // build up our index count array
+  for (i = 0; i < array.length; i++) {
+    count[array[i]]++;
+  }
+
+  // Modify array and move elements into their sorted location
+  for (i = min; i <= max; i++) {
+    while (count[i]-- > 0) {
+      array[z++] = i;
+    }
+  }
+  return array;
+};

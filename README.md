@@ -11,15 +11,17 @@ Clone this repository
 `git@github.com:Jessica-Koch/knuts-and-bolts.git`
 
 Install the package dependencies:
-`npm install`
+`yarn install` or `npm install`
 
 ## Testing
 
 Knuts&Bolts uses Jest to run its tests.
 
 Make sure to run the build,
-`npm run build`
+`yarn run build`
 
-Now you're ready to run the tests, `npm run test`.
+Now you're ready to run the tests, `yarn run test`.
 
-Alternatively, run `npm run watch-tests` which will watch for code changes.
+Running `yarn run watch-tests` which will watch for code changes.
+
+Alternatively, if you prefer, you can run any of the above tests with `npm` instead of `yarn`.
