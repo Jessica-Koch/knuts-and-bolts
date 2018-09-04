@@ -111,6 +111,11 @@ describe('LinkedLists', () => {
   });
 
   describe('deleteValue', () => {
+    test('it should return if LinkedList has no head or tail', () => {
+      expect(list.length).toBe(0);
+      expect(list.deleteValue(200)).toBeUndefined();
+    });
+
     test('it should return if item to delete does not exist', () => {
       list.addToTail(100);
 

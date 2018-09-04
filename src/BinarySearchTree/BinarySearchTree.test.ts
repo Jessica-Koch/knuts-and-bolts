@@ -135,9 +135,19 @@ describe('BinarySearchTrees', () => {
   });
 
   describe('preorder traversal', () => {
-    const tree = new BinarySearchTree<number>(1);
+    const tree = new BinarySearchTree<number>(11);
+    tree.insert(6);
+    tree.insert(19);
+    tree.insert(21);
+    tree.insert(4);
+    tree.insert(10);
+
     test('it should handle null nodes', () => {
       expect(tree.preorderTraversal()).toBeUndefined();
+    });
+
+    test('it should traverse nodes', () => {
+      expect(tree.preorderTraversal(tree.root)).toEqual([11, 6, 4, 10, 19, 21]);
     });
   });
 });

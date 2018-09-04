@@ -4,7 +4,7 @@ class BinarySearchTree<T extends string | number> {
   public val?: string | number;
   public root: TreeNode<T>;
 
-public constructor(val: T) {
+  public constructor(val: T) {
     this.root = new TreeNode(val);
   }
 
@@ -43,13 +43,16 @@ public constructor(val: T) {
       : undefined;
   }
 
-  public preorderTraversal(root?: TreeNode<T>) {
-    if (!root || !this.root) return;
+  public preorderTraversal(
+    root?: TreeNode<T>,
+    arr: any[] = []
+  ): number[] | string[] | undefined {
+    if (!root) return;
+    arr.push(root.value);
+    if (root.left) this.preorderTraversal(root.left, arr);
+    if (root.right) this.preorderTraversal(root.right, arr);
 
-    console.log(root.value);
-
-    if (root.left) this.preorderTraversal(root.left);
-    if (root.right) this.preorderTraversal(root.right);
+    return arr;
   }
 
   public search(val: T) {
