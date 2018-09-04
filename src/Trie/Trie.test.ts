@@ -3,12 +3,8 @@ import Trie from './Trie';
 describe('Trie', () => {
   describe('initialization', () => {
     test('it behaves', () => {
-      const trie = new Trie();
+      const trie = new Trie({ bloop: 1 });
       expect(trie).toBeTruthy();
     });
-  });
-
-  describe('insert', () => {
-    test('it should be able to insert a value', () => {});
   });
 });

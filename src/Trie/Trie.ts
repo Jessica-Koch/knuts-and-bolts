@@ -1,7 +1,8 @@
 class Trie {
-  constructor() {}
-
-  
+  public words: object;
+  constructor(words: object) {
+    this.words = words;
+  }
 }
 
 export default Trie;
