@@ -65,6 +65,7 @@ describe('BinarySearchTrees', () => {
       expect(tree.root.right!.value).toBe(19);
     });
   });
+
   describe('recursiveSearch', () => {
     const tree = new BinarySearchTree<number>(11);
     tree.insert(6);
@@ -130,6 +131,13 @@ describe('BinarySearchTrees', () => {
     test('it should return null if node is not found', () => {
       const result = tree.search(13);
       expect(result).toBeUndefined();
+    });
+  });
+
+  describe('preorder traversal', () => {
+    const tree = new BinarySearchTree<number>(1);
+    test('it should handle null nodes', () => {
+      expect(tree.preorderTraversal()).toBeUndefined();
     });
   });
 });

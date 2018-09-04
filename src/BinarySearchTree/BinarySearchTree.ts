@@ -1,9 +1,10 @@
 import TreeNode from '../TreeNode/TreeNode';
+
 class BinarySearchTree<T extends string | number> {
   public val?: string | number;
   public root: TreeNode<T>;
 
-  public constructor(val: T) {
+public constructor(val: T) {
     this.root = new TreeNode(val);
   }
 
@@ -42,13 +43,13 @@ class BinarySearchTree<T extends string | number> {
       : undefined;
   }
 
-  public preorderTraversal(node?: TreeNode<T>) {
-    if (!node || !this.root) {
-      return;
-    }
+  public preorderTraversal(root?: TreeNode<T>) {
+    if (!root || !this.root) return;
 
-    this.preorderTraversal(node.left);
-    this.preorderTraversal(node.right);
+    console.log(root.value);
+
+    if (root.left) this.preorderTraversal(root.left);
+    if (root.right) this.preorderTraversal(root.right);
   }
 
   public search(val: T) {

@@ -54,9 +54,14 @@ describe('Sorting', () => {
       expect(quickSort([], 0, 0)).toEqual([]);
     });
 
-    test('it should be able to sort an array of numbers', () => {
+    test('it should be able to sort an odd array of numbers', () => {
       const arr = [2, 4, 1, 3, 5];
       expect(quickSort(arr, 0, arr.length - 1)).toEqual([1, 2, 3, 4, 5]);
+    });
+
+    test('it should be able to sort an even array of numbers', () => {
+      const arr = [2, 4, 1, 6, 3, 5];
+      expect(quickSort(arr, 0, arr.length - 1)).toEqual([1, 2, 3, 4, 5, 6]);
     });
 
     describe('partition', () => {
