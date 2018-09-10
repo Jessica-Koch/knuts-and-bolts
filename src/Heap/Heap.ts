@@ -58,18 +58,23 @@ class Heap {
     const leftChild = 2 * i + 1;
     const rightChild = leftChild + 1;
 
-    if (leftChild < this.size && this.items[leftChild] > this.items[max]) {
-      max = leftChild;
-    }
-
-    if (rightChild < this.size && this.items[rightChild] > this.items[max]) {
-      max = rightChild;
-    }
+    max = this.reassignMaxValue(leftChild, max);
+    max = this.reassignMaxValue(rightChild, max);
 
     if (max === i) return;
 
     swap(this.items, i, max);
     this.heapify(arr, arrSize, max);
+  }
+
+  private reassignMaxValue(childIndex: number, maxIndex: number) {
+    if (
+      childIndex < this.size &&
+      this.items[childIndex] > this.items[maxIndex]
+    ) {
+      maxIndex = childIndex;
+    }
+    return maxIndex;
   }
 }
 

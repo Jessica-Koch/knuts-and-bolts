@@ -27,7 +27,7 @@ class LinkedList<T extends string | number> {
 
   public addToTail(val: string | number) {
     const newNode = new Node(val, undefined, undefined);
-    if (this.tail) {
+    if (this.isDefined(this.tail)) {
       this.tail.next = newNode;
       newNode.prev = this.tail;
     } else {
@@ -137,8 +137,8 @@ class LinkedList<T extends string | number> {
     }
   }
 
-  private isDefined(el: Node<T> | undefined): el is Node<T>{
-    return (el) !== undefined;
+  private isDefined(el: Node<T> | undefined): el is Node<T> {
+    return el !== undefined;
   }
 }
 
