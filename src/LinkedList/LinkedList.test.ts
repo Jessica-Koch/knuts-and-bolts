@@ -1,6 +1,6 @@
-import LinkedList from "./LinkedList";
+import LinkedList from './LinkedList';
 
-describe("LinkedLists", () => {
+describe('LinkedLists', () => {
   let list: LinkedList<string | number>;
 
   beforeEach(() => {
@@ -11,21 +11,21 @@ describe("LinkedLists", () => {
     list = new LinkedList();
   });
 
-  test("starts out empty", () => {
+  test('starts out empty', () => {
     expect(list.length).toBe(0);
     expect(list.tail).toBeUndefined();
     expect(list.head).toBeUndefined();
   });
 
-  describe("addToHead", () => {
-    test("it should be able to add one item to the list", () => {
+  describe('addToHead', () => {
+    test('it should be able to add one item to the list', () => {
       list.addToHead(100);
       expect(list.length).toBe(1);
       expect(list.head!.value).toBe(100);
       expect(list.tail!.value).toBe(100);
     });
 
-    test("it should be able to add multiple items to the list", () => {
+    test('it should be able to add multiple items to the list', () => {
       list.addToHead(100);
       list.addToHead(200);
       expect(list.length).toBe(2);
@@ -34,15 +34,15 @@ describe("LinkedLists", () => {
     });
   });
 
-  describe("addToTail", () => {
-    test("it should be able to add one item to the tail", () => {
+  describe('addToTail', () => {
+    test('it should be able to add one item to the tail', () => {
       list.addToTail(100);
       expect(list.length).toBe(1);
       expect(list.head!.value).toBe(100);
       expect(list.tail!.value).toBe(100);
     });
 
-    test("it should be able to add multiple items to the tail", () => {
+    test('it should be able to add multiple items to the tail', () => {
       list.addToTail(100);
       list.addToTail(200);
       list.addToTail(300);
@@ -52,14 +52,14 @@ describe("LinkedLists", () => {
     });
   });
 
-  describe("deleteHead", () => {
-    test("it should handle null gracefully", () => {
+  describe('deleteHead', () => {
+    test('it should handle null gracefully', () => {
       list.deleteHead();
 
       expect(list.length).toBe(0);
     });
 
-    test("it should be able to remove the last item in a list", () => {
+    test('it should be able to remove the last item in a list', () => {
       list.addToHead(100);
       list.deleteHead();
 
@@ -68,7 +68,7 @@ describe("LinkedLists", () => {
       expect(list.tail).toBeUndefined();
     });
 
-    test("it should be able to delete one item from the head", () => {
+    test('it should be able to delete one item from the head', () => {
       list.addToTail(100);
       list.addToTail(200);
       list.addToTail(300);
@@ -81,14 +81,14 @@ describe("LinkedLists", () => {
     });
   });
 
-  describe("deleteTail", () => {
-    test("it should handle null gracefully", () => {
+  describe('deleteTail', () => {
+    test('it should handle null gracefully', () => {
       list.deleteTail();
 
       expect(list.length).toBe(0);
     });
 
-    test("it should be able to remove the last item in a list", () => {
+    test('it should be able to remove the last item in a list', () => {
       list.addToTail(100);
       list.deleteTail();
 
@@ -97,7 +97,7 @@ describe("LinkedLists", () => {
       expect(list.tail).toBeUndefined();
     });
 
-    test("it should be able to delete one item from the tail", () => {
+    test('it should be able to delete one item from the tail', () => {
       list.addToTail(100);
       list.addToTail(200);
       list.addToTail(300);
@@ -110,15 +110,20 @@ describe("LinkedLists", () => {
     });
   });
 
-  describe("deleteValue", () => {
-    test("it should return if item to delete does not exist", () => {
+  describe('deleteValue', () => {
+    test('it should return if LinkedList has no head or tail', () => {
+      expect(list.length).toBe(0);
+      expect(list.deleteValue(200)).toBeUndefined();
+    });
+
+    test('it should return if item to delete does not exist', () => {
       list.addToTail(100);
 
       expect(list.length).toBe(1);
       expect(list.deleteValue(200)).toBeUndefined();
     });
 
-    test("it should be able to delete one item from the list", () => {
+    test('it should be able to delete one item from the list', () => {
       list.addToTail(100);
       list.addToTail(200);
       list.addToTail(300);
@@ -134,13 +139,13 @@ describe("LinkedLists", () => {
     });
   });
 
-  describe("Search", () => {
-    test("it should handle null gracefully", () => {
+  describe('Search', () => {
+    test('it should handle null gracefully', () => {
       expect(list.length).toBe(0);
       expect(list.search(200)).toBeFalsy();
     });
 
-    test("it should be able to find an element", () => {
+    test('it should be able to find an element', () => {
       list.addToTail(100);
       list.addToTail(200);
       list.addToTail(300);
@@ -149,7 +154,7 @@ describe("LinkedLists", () => {
       expect(result!.value).toBe(100);
     });
 
-    test("it should return if a node is not found", () => {
+    test('it should return if a node is not found', () => {
       list.addToTail(100);
       list.addToTail(200);
       list.addToTail(300);
@@ -158,20 +163,20 @@ describe("LinkedLists", () => {
     });
   });
 
-  describe("Reverse", () => {
-    test("it should handle null gracefully", () => {
+  describe('Reverse', () => {
+    test('it should handle null gracefully', () => {
       expect(list.length).toBe(0);
       expect(list.reverse()).toBe(list);
     });
 
-    test("it should return if there are no or only 1 item in the list", () => {
+    test('it should return if there are no or only 1 item in the list', () => {
       list.addToTail(100);
       const reversed = list.reverse();
       expect(reversed && reversed.head && reversed.head.value).toBe(100);
       expect(reversed && reversed.tail && reversed.tail.value).toBe(100);
     });
 
-    test("it should be able to be able to reverse the order of a list", () => {
+    test('it should be able to be able to reverse the order of a list', () => {
       list.addToTail(100);
       list.addToTail(200);
       list.addToTail(300);

@@ -1,4 +1,4 @@
-import Node from "../Node/Node";
+import Node from '../Node/Node';
 
 class Stack<T extends string | number> {
   public tail?: Node<T>;

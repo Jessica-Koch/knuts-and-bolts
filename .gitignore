@@ -4,3 +4,4 @@
 *.log
 /lib
 .vscode/
+package-lock.json

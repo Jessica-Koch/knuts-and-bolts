@@ -21,6 +21,7 @@
     ],
     "interface-name": false,
     "no-consecutive-blank-lines": [true, 2],
+    "no-console": [false, "log", "error"],
     "no-irregular-whitespace": true,
     "object-literal-sort-keys": false,
     "ordered-imports": [
@@ -32,6 +33,7 @@
     ],
     "no-implicit-dependencies": [true, "dev"],
     "max-classes-per-file": false,
+    "quotemark": [true, "single"],
     "no-unnecessary-callback-wrapper": true
   }
 }
