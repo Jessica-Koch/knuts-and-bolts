@@ -7,7 +7,7 @@
     "build": "./node_modules/typescript/bin/tsc",
     "clean": "rm -rf lib",
     "coverage": "open ./coverage/index.html",
-    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js -- $1 --runInBand",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "fixlint": "./node_modules/tslint/bin/tslint --project ./ --fix",
     "lint": "./node_modules/.bin/tslint ./src/**/*.ts",
     "precise-commits": "./node_modules/precise-commits/bin/index.js",
