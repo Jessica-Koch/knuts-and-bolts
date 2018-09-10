@@ -58,7 +58,7 @@ class LinkedList<T extends string | number> {
    * @returns void
    */
   public deleteHead() {
-    if (this.head === undefined) return;
+    if (!this.isDefined(this.head)) return;
     this.head = this.head.next;
 
     // if old head present, set it to undefined, if not, set the tail to undefined
@@ -73,7 +73,7 @@ class LinkedList<T extends string | number> {
    * @returns void
    */
   public deleteTail() {
-    if (this.tail === undefined) return;
+    if (!this.isDefined(this.tail)) return;
 
     this.tail = this.tail.prev;
 
@@ -90,7 +90,7 @@ class LinkedList<T extends string | number> {
     if (!this.tail && !this.head) return;
 
     const itemToDelete = this.search(val);
-    if (itemToDelete) {
+    if (this.isDefined(itemToDelete)) {
       if (itemToDelete.prev && itemToDelete.next) {
         itemToDelete.prev.next = itemToDelete.next;
         itemToDelete.next.prev = itemToDelete.prev;
@@ -135,6 +135,10 @@ class LinkedList<T extends string | number> {
     if (headOrTail === 'tail' && !node.next) {
       return (this.tail = node.prev);
     }
+  }
+
+  private isDefined(el: Node<T> | undefined): el is Node<T>{
+    return (el) !== undefined;
   }
 }
 
