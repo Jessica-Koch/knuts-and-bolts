@@ -11,7 +11,7 @@
     "fixlint": "./node_modules/tslint/bin/tslint --project ./ --fix",
     "lint": "./node_modules/.bin/tslint ./src/**/*.ts",
     "precise-commits": "./node_modules/precise-commits/bin/index.js",
-    "prepush": "npm run lint && precise-commits && npm run test",
+    "prepush": "yarn run lint && precise-commits && yarn run test",
     "test": "jest --coverage --colors",
     "tslint-check": "./node_modules/tslint-config-prettier/bin/check.js ./tslint.json",
     "type-check": "./node_modules/typescript/bin/tsc --noEmit",
@@ -19,8 +19,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build && precise-commits",
-      "pre-push": "npm run lint  && npm run test"
+      "pre-commit": "yarn run build && precise-commits",
+      "pre-push": "yarn run lint  && yarn run test"
     }
   },
   "presets": [

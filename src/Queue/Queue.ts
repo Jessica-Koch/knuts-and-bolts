@@ -24,14 +24,14 @@ class Queue<T extends string | number> {
   }
 
   public dequeue() {
-    if (this.length === 1) {
+    if (this.length > 1 && this.head) {
+      this.head = this.head.next;
+      this.length--;
+    } else if (this.length === 1) {
       this.head = undefined;
       this.tail = undefined;
       this.length--;
-    } else if (this.length > 1) {
-      this.head = this.head!.next;
-      this.length--;
-    }
+    }  
   }
 
   public top() {

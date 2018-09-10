@@ -26,8 +26,8 @@ class Stack<T extends string | number> {
     if (this.length === 1) {
       this.tail = undefined;
       this.length--;
-    } else if (this.length > 1) {
-      this.tail = this.tail!.prev;
+    } else if (this.length > 1 && this.tail) {
+      this.tail = this.tail.prev;
       this.length--;
     }
 
