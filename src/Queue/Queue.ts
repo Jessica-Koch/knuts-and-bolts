@@ -31,11 +31,16 @@ class Queue<T extends string | number> {
       this.head = undefined;
       this.tail = undefined;
       this.length--;
-    }  
+    } else if (this.length > 1 && this.head) {
+      this.head = this.head.next;
+      this.length--;
+    }
   }
 
   public top() {
-    if (this.head) { return this.head; }
+    if (this.head) {
+      return this.head;
+    }
 
     return undefined;
   }
@@ -45,7 +50,9 @@ class Queue<T extends string | number> {
   }
 
   public isEmpty() {
-    if (!this.head && !this.tail) { return true; }
+    if (!this.head && !this.tail) {
+      return true;
+    }
 
     return false;
   }
