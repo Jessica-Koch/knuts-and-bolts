@@ -24,7 +24,12 @@ class Trie extends TrieNode {
       if (tnode !== undefined) {
         addWordHelper(tnode, str.slice(1));
       } else {
-return      }
+              ;
+        ;
+        ;
+        ;
+  return;
+      }
     };
     addWordHelper(this, strg);
   }
