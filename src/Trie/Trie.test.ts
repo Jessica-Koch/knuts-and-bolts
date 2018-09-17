@@ -39,6 +39,8 @@ describe('Trie', () => {
       trie.addWord('bird');
       expect(trie.isWord('kitty')).toBe(false);
       expect(trie.isWord('bird')).toBe(true);
+      trie.addWord('kitty');
+      expect(trie.isWord('kit')).toBe(true);
     });
   });
 });

@@ -24,11 +24,7 @@ class Trie extends TrieNode {
       if (tnode !== undefined) {
         addWordHelper(tnode, str.slice(1));
       } else {
-              ;
-        ;
-        ;
-        ;
-  return;
+        return;
       }
     };
     addWordHelper(this, strg);
@@ -75,7 +71,7 @@ class Trie extends TrieNode {
         return false;
       } else {
         word = word.substr(1);
-        node = node!.children.get(word[0]);
+        node = node.children.get(word[0]);
       }
 
       return true;
