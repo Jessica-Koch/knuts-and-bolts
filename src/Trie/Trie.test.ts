@@ -29,16 +29,19 @@ describe('Trie', () => {
         return a;
       };
 
-      myMapFn(trie.children);
+      myMapFn(trie.root.children);
       expect(a.join('')).toBe('puppy');
     });
   });
 
   describe('isWord', () => {
-    test('it can add words to the Trie', () => {
+    test('it returns whether a word is in the trie', () => {
       trie.addWord('bird');
-      expect(trie.isWord('kitty')).toBe(false);
+
       expect(trie.isWord('bird')).toBe(true);
+      expect(trie.isWord('kitty')).toBe(false);
+      trie.addWord('kite');
+      expect(trie.isWord('kit')).toBe(true);
     });
   });
 });

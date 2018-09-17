@@ -69,7 +69,6 @@ export const insertionSort = (arr: number[]) => {
 
 const merge = (leftArray: number[], rightArray: number[], arr: number[]) => {
   let index = 0;
-
   while (leftArray.length && rightArray.length) {
     rightArray[0] < leftArray[0]
       ? (arr[index++] = rightArray.shift() || 0)

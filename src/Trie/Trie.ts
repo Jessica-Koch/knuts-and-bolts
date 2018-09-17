@@ -1,37 +1,14 @@
 import TrieNode from './TrieNode/TrieNode';
 class Trie extends TrieNode {
-  // public print = () => {};
-
-  // public delete = () => {};
-  // }
+  public root: TrieNode;
 
   constructor() {
-    super(undefined);
+    super();
+    this.root = new TrieNode('');
   }
 
   public addWord(strg: string) {
-    const addWordHelper = (node: TrieNode, str: string) => {
-      if (!node.children.has(str[0])) {
-        node.children.set(str[0], new TrieNode(str[0]));
-        while (str.length === 1) {
-          const n = node.children.get(str[0]);
-
-          return n && n.setEnd();
-        }
-      }
-
-      const tnode = node.children.get(str[0]);
-      if (tnode !== undefined) {
-        addWordHelper(tnode, str.slice(1));
-      } else {
-              ;
-        ;
-        ;
-        ;
-  return;
-      }
-    };
-    addWordHelper(this, strg);
+    this.addWordHelper(this.root, strg);
   }
 
   public predictWord(strg: string) {
@@ -47,38 +24,44 @@ class Trie extends TrieNode {
 
     const allWords: string[] = [];
 
-    const remainingTree = getRemainingTree(strg, this);
+    const remainingTree = getRemainingTree(strg, this.root);
     if (remainingTree) {
       this.allWordsHelper(strg, remainingTree, allWords);
     }
     return allWords;
   }
-  // private addWordHelper = (node: TrieNode, str: string) => {
-  //   if (!node.children.has(str[0])) {
-  //     node.children.set(str[0], new TrieNode(str[0]));
 
-  //     const cnodes = node.children.get(str[0]);
-  //     if (str.length === 1 && cnodes) {
-  //       cnodes.setEnd();
-  //     }
-  //     if (str.length > 0 && cnodes) {
-  //       this.addWordHelper(cnodes, str.substr(1));
-  //     }
-  //   }
-  //   this.addWordHelper(this, str);
-  // };
-  public isWord = (word: string) => {
-    while (word.length > 1) {
-      let node = this.children.get(word[0]);
-
-      if (node === undefined) {
-        return false;
-      } else {
-        word = word.substr(1);
-        node = node!.children.get(word[0]);
+  public isWord(word: string, node = this.root) {
+    const currNode = node.children.get(word[0]);
+    if (currNode === undefined) {
+      return false;
+    } else {
+      if (word.length === 1 && currNode.isEnd() === false) {
+        currNode.setEnd();
+        return true;
       }
+      word = word.slice(1);
+      this.isWord(word, currNode);
+    }
 
-      return true;
+    return true;
+  }
+
+  private addWordHelper = (node: TrieNode, str: string) => {
+    if (!node.children.has(str[0])) {
+      node.children.set(str[0], new TrieNode(str[0]));
+      while (str.length === 1) {
+        const n = node.children.get(str[0]);
+
+        return n && n.setEnd();
+      }
+    }
+
+    const tnode = node.children.get(str[0]);
+    if (tnode !== undefined) {
+      this.addWordHelper(tnode, str.slice(1));
+    } else {
+      return;
     }
   };
 
