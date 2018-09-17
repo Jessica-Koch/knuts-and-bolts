@@ -14,7 +14,9 @@ export const removeVowels = (str: string): string => {
 
   const ch = str.slice(0, 1);
   const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-  vowels.has(ch) ? (str = removeVowels(str.substr(1))) : (str = ch + removeVowels(str.slice(1)));
+  vowels.has(ch)
+    ? (str = removeVowels(str.substr(1)))
+    : (str = ch + removeVowels(str.slice(1)));
 
   return str;
 };

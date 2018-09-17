@@ -1,5 +1,10 @@
 import TrieNode from './TrieNode/TrieNode';
 class Trie extends TrieNode {
+  // public print = () => {};
+
+  // public delete = () => {};
+  // }
+
   constructor() {
     super(undefined);
   }
@@ -9,20 +14,17 @@ class Trie extends TrieNode {
       if (!node.children.has(str[0])) {
         node.children.set(str[0], new TrieNode(str[0]));
         while (str.length === 1) {
-        const n = node.children.get(str[0]);
+          const n = node.children.get(str[0]);
 
-        return n && n.setEnd();
+          return n && n.setEnd();
         }
       }
-      // if (str.length > 1) {
-        const tnode = node.children.get(str[0]);
-        if (tnode !== undefined ) {
-          addWordHelper(tnode, str.slice(1))
-        }else {
-          console.log('in other else');
-        };
 
-      // }
+      const tnode = node.children.get(str[0]);
+      if (tnode !== undefined) {
+        addWordHelper(tnode, str.slice(1));
+      } else {
+return      }
     };
     addWordHelper(this, strg);
   }
@@ -40,22 +42,9 @@ class Trie extends TrieNode {
 
     const allWords: string[] = [];
 
-    const allWordsHelper = (stringSoFar: string, tree: TrieNode) => {
-      for (const [k] of tree.children) {
-        const child = tree.children.get(k);
-
-        const newString = child && stringSoFar + child.value;
-
-        if (child && newString && child.isEnd()) {
-          allWords.push(newString);
-        }
-        allWordsHelper(newString!, child!);
-      }
-    };
-
     const remainingTree = getRemainingTree(strg, this);
     if (remainingTree) {
-      allWordsHelper(strg, remainingTree);
+      this.allWordsHelper(strg, remainingTree, allWords);
     }
     return allWords;
   }
@@ -73,27 +62,37 @@ class Trie extends TrieNode {
   //   }
   //   this.addWordHelper(this, str);
   // };
+  public isWord = (word: string) => {
+    while (word.length > 1) {
+      let node = this.children.get(word[0]);
 
-  // public isWord = (word: string) => {
-  //   let node = this.root;
-  //   while (word.length > 1) {
-  //     console.log(word.length);
-  //     if (!node.keys.has(word[0])) {
-  //       return false;
-  //     } else {
-  //       node = node.keys.get(word[0])!;
-  //       word = word.substr(1);
-  //     }
-  //     const n = node.keys.entries();
-  //     console.log('inside while loop', n.next(), n.next(), n.next(), n.next());
-  //   }
-  //   console.log('outside while loop', node.keys.has(word));
-  //   return node.keys.get(word)!.isEnd();
+      if (node === undefined) {
+        return false;
+      } else {
+        word = word.substr(1);
+        node = node!.children.get(word[0]);
+      }
+
+      return true;
+    }
   };
 
-  // public print = () => {};
+  private allWordsHelper = (
+    stringSoFar: string,
+    tree: TrieNode,
+    allWords: string[]
+  ) => {
+    for (const [k] of tree.children) {
+      const child = tree.children.get(k);
 
-  // public delete = () => {};
-// }
+      const newString = child && stringSoFar + child.value;
+
+      if (child && newString && child.isEnd()) {
+        allWords.push(newString);
+      }
+      this.allWordsHelper(newString!, child!, allWords);
+    }
+  };
+}
 
 export default Trie;

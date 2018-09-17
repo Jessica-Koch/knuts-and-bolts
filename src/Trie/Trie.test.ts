@@ -34,13 +34,11 @@ describe('Trie', () => {
     });
   });
 
-  // describe('isWord', () => {
-  //   test('it can add words to the Trie', () => {
-  //     const t = new Trie();
-  //     t.addWord('bird');
-  //     console.log('-------------bird trie', t);
-  //     expect(t.isWord('bird')).toBe(true);
-  //     expect(t.isWord('kitty')).toBe(false);
-  //   });
-  // });
+  describe('isWord', () => {
+    test('it can add words to the Trie', () => {
+      trie.addWord('bird');
+      expect(trie.isWord('kitty')).toBe(false);
+      expect(trie.isWord('bird')).toBe(true);
+    });
+  });
 });
