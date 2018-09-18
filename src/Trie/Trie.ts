@@ -31,20 +31,19 @@ class Trie extends TrieNode {
     return allWords;
   }
 
-  public isWord(word: string, node = this.root) {
+  public isWord(word: string, node = this.root): boolean {
     const currNode = node.children.get(word[0]);
-    if (currNode === undefined) {
-      return false;
-    } else {
-      if (word.length === 1 && currNode.isEnd() === false) {
-        currNode.setEnd();
-        return true;
-      }
-      word = word.slice(1);
-      this.isWord(word, currNode);
-    }
 
-    return true;
+    if (currNode) {
+      word = word.slice(1);
+      if (word.length === 0 && currNode.isEnd()) {
+        return true;
+      } else {
+        return this.isWord(word, currNode);
+      }
+    } else {
+      return false;
+    }
   }
 
   private addWordHelper = (node: TrieNode, str: string) => {
