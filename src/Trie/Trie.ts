@@ -11,25 +11,25 @@ class Trie extends TrieNode {
     this.addWordHelper(this.root, strg);
   }
 
-  public predictWord(strg: string) {
-    const getRemainingTree = (str: string, tree: TrieNode) => {
-      let node;
+  // public predictWord(strg: string) {
+  //   const getRemainingTree = (str: string, tree: TrieNode) => {
+  //     let node;
 
-      while (str) {
-        node = tree.children.get(str[0]);
-        str = str.slice(1);
-      }
-      return node;
-    };
+  //     while (str) {
+  //       node = tree.children.get(str[0]);
+  //       str = str.slice(1);
+  //     }
+  //     return node;
+  //   };
 
-    const allWords: string[] = [];
+  //   const allWords: string[] = [];
 
-    const remainingTree = getRemainingTree(strg, this.root);
-    if (remainingTree) {
-      this.allWordsHelper(strg, remainingTree, allWords);
-    }
-    return allWords;
-  }
+  //   const remainingTree = getRemainingTree(strg, this.root);
+  //   if (remainingTree) {
+  //     this.allWordsHelper(strg, remainingTree, allWords);
+  //   }
+  //   return allWords;
+  // }
 
   public isWord(word: string, node = this.root): boolean {
     const currNode = node.children.get(word[0]);
@@ -64,22 +64,22 @@ class Trie extends TrieNode {
     }
   };
 
-  private allWordsHelper = (
-    stringSoFar: string,
-    tree: TrieNode,
-    allWords: string[]
-  ) => {
-    for (const [k] of tree.children) {
-      const child = tree.children.get(k);
+  // private allWordsHelper = (
+  //   stringSoFar: string,
+  //   tree: TrieNode,
+  //   allWords: string[]
+  // ) => {
+  //   for (const [k] of tree.children) {
+  //     const child = tree.children.get(k);
 
-      const newString = child && stringSoFar + child.value;
+  //     const newString = child && stringSoFar + child.value;
 
-      if (child && newString && child.isEnd()) {
-        allWords.push(newString);
-      }
-      this.allWordsHelper(newString!, child!, allWords);
-    }
-  };
+  //     if (child && newString && child.isEnd()) {
+  //       allWords.push(newString);
+  //     }
+  //     this.allWordsHelper(newString!, child!, allWords);
+  //   }
+  // };
 }
 
 export default Trie;

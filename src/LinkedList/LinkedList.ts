@@ -67,7 +67,7 @@ class LinkedList<T extends string | number> {
    */
   public deleteTail() {
     if (!this.isDefined(this.tail)) return;
-    this.deleteValue(this.tail.value)
+    this.deleteValue(this.tail.value);
   }
 
   /**
