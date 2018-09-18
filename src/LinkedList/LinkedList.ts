@@ -59,27 +59,15 @@ class LinkedList<T extends string | number> {
    */
   public deleteHead() {
     if (!this.isDefined(this.head)) return;
-    this.head = this.head.next;
-
-    // if old head present, set it to undefined, if not, set the tail to undefined
-    this.head ? (this.head.prev = undefined) : (this.tail = undefined);
-    this.length--;
+    this.deleteValue(this.head.value);
   }
 
   /**
    * @returns void
    */
-  /**
-   * @returns void
-   */
   public deleteTail() {
     if (!this.isDefined(this.tail)) return;
-
-    this.tail = this.tail.prev;
-
-    // if old tail present, set it to null, if not, set the head to null
-    this.tail ? (this.tail.next = undefined) : (this.head = undefined);
-    this.length--;
+    this.deleteValue(this.tail.value)
   }
 
   /**
